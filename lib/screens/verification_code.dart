@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class VerificationCode extends StatelessWidget {
   const VerificationCode({Key? key}) : super(key: key);
@@ -36,9 +37,9 @@ class VerificationCode extends StatelessWidget {
             padding: EdgeInsets.only(left: 250),
             child: Text("Resend Code",
                 style: TextStyle(
-                  color: Color(0xFF0B2E40),
+                  color: Color(0xFF244395),
                   fontSize: 20,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,
                 )),
           ),
@@ -46,23 +47,30 @@ class VerificationCode extends StatelessWidget {
             height: 100,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 width: 50,
                 height: 50,
                 child: TextField(
                   textAlign: TextAlign.center,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(1),
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 24, fontWeight: FontWeight.bold),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none)),
                 ),
               ),
@@ -71,8 +79,17 @@ class VerificationCode extends StatelessWidget {
                 height: 50,
                 child: TextField(
                   textAlign: TextAlign.center,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(1),
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                   keyboardType: TextInputType.number,
@@ -80,7 +97,7 @@ class VerificationCode extends StatelessWidget {
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none)),
                 ),
               ),
@@ -89,8 +106,17 @@ class VerificationCode extends StatelessWidget {
                 height: 50,
                 child: TextField(
                   textAlign: TextAlign.center,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(1),
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                   keyboardType: TextInputType.number,
@@ -98,7 +124,7 @@ class VerificationCode extends StatelessWidget {
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none)),
                 ),
               ),
@@ -107,8 +133,17 @@ class VerificationCode extends StatelessWidget {
                 height: 50,
                 child: TextField(
                   textAlign: TextAlign.center,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(1),
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                   keyboardType: TextInputType.number,
@@ -116,7 +151,7 @@ class VerificationCode extends StatelessWidget {
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none)),
                 ),
               ),
@@ -125,8 +160,17 @@ class VerificationCode extends StatelessWidget {
                 height: 50,
                 child: TextField(
                   textAlign: TextAlign.center,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(1),
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                   keyboardType: TextInputType.number,
@@ -134,7 +178,7 @@ class VerificationCode extends StatelessWidget {
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none)),
                 ),
               ),
@@ -143,8 +187,17 @@ class VerificationCode extends StatelessWidget {
                 height: 50,
                 child: TextField(
                   textAlign: TextAlign.center,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(1),
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                   keyboardType: TextInputType.number,
@@ -152,7 +205,7 @@ class VerificationCode extends StatelessWidget {
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none)),
                 ),
               ),
@@ -164,9 +217,9 @@ class VerificationCode extends StatelessWidget {
           Center(
             child: Container(
               width: 370,
-              height: 40,
+              height: 50,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(8),
                 child: ElevatedButton(
                     onPressed: () {},
                     child: Text("Submit"),
