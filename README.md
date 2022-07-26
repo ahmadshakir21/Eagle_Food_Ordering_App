@@ -2,16 +2,16 @@
 
 A new Flutter app will use for ordering food
 
-## Food-Ordering-App Logo
+### Food-Ordering-App Logo
 
-## App Screen
+### App Screen
 
-## Colors & Fonts
+### Colors & Fonts
 
-## Features
+### Features
 
-## Future Version Features
+### Future Version Features
 
-## Author
+### Author
 
-## Feedback
+### Feedback
