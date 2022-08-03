@@ -13,6 +13,6 @@ A new Flutter app will use for ordering food
 ### Future Version Features
 
 ### Author
-####### @ahmadshakir21
+<a href = "https://github.com/ahmadshakir21">@ahmadshakir21</a>
 
 ### Feedback
