@@ -11,8 +11,8 @@ A new Flutter app will use for ordering food
 ### Features
 
 ### Future Version Features
-##### . Dark Theme
-##### . Kurdish Language
+. Dark Theme
+. Kurdish Language
 
 ### Author
 <a href = "https://github.com/ahmadshakir21">@ahmadshakir21</a>
