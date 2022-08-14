@@ -7,6 +7,9 @@ A new Flutter app will use for ordering food
 ## App Screen
 
 ## Colors & Fonts
+div {
+	clip-path: polygon(100% 100%, 100% 100%, 100% 100%)
+}
 
 ## Features
 <ul>
