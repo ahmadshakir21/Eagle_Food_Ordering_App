@@ -20,8 +20,7 @@ A new Flutter app will use for ordering food
 ### Author
 <a href = "https://github.com/ahmadshakir21">@ahmadshakir21</a>
 
-### Feedback
-<p>feeback and suggestion</p>
+### Feedback and Suggestion
 <ul>
   <li>ahmad.software.developer@gmail.com</li>
   <li>https://www.linkedin.com/in/ahmad-shakir-1a6a95226/</li>
