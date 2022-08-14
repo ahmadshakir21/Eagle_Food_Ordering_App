@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 40, right: 10, left: 10),
+            padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -158,161 +159,282 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        height: 90,
-                        width: 65,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: const Color(0xFF244395)),
-                        child: Column(children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
+                  Container(
+                    height: 90,
+                    // color: Colors.red,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Container(
+                          height: 90,
+                          width: 65,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: const Color(0xFF244395)),
+                          child: Column(children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(7),
+                                child: Image.asset("assets/images/menu.png"),
+                              ),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Image.asset("assets/images/burger.png"),
+                            const Text(
+                              "All",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            )
+                          ]),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 90,
+                          width: 65,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: const Color(0xFF244395)),
+                          child: Column(children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6),
+                                child: Image.asset("assets/images/burger.png"),
+                              ),
                             ),
-                          ),
-                          const Text(
-                            "Burger",
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          )
-                        ]),
-                      ),
-                      Container(
-                        height: 90,
-                        width: 65,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: const Color(0xFF244395)),
-                        child: Column(children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
+                            const Text(
+                              "Burger",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            )
+                          ]),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 90,
+                          width: 65,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: const Color(0xFF244395)),
+                          child: Column(children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6),
+                                child: Image.asset("assets/images/pizza.png"),
+                              ),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Image.asset("assets/images/pizza.png"),
+                            const Text(
+                              "Pizza",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            )
+                          ]),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 90,
+                          width: 65,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: const Color(0xFF244395)),
+                          child: Column(children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6),
+                                child: Image.asset(
+                                    "assets/images/fried-potatoes.png"),
+                              ),
                             ),
-                          ),
-                          const Text(
-                            "Pizza",
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          )
-                        ]),
-                      ),
-                      Container(
-                        height: 90,
-                        width: 65,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: const Color(0xFF244395)),
-                        child: Column(children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
+                            const Text(
+                              "Fries",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            )
+                          ]),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 90,
+                          width: 65,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: const Color(0xFF244395)),
+                          child: Column(children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6),
+                                child: Image.asset(
+                                    "assets/images/fried-chicken.png"),
+                              ),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Image.asset(
-                                  "assets/images/fried-potatoes.png"),
+                            const Text(
+                              "Chicken",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            )
+                          ]),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 90,
+                          width: 65,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: const Color(0xFF244395)),
+                          child: Column(children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6),
+                                child: Image.asset("assets/images/hot-dog.png"),
+                              ),
                             ),
-                          ),
-                          const Text(
-                            "Fries",
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          )
-                        ]),
-                      ),
-                      Container(
-                        height: 90,
-                        width: 65,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: const Color(0xFF244395)),
-                        child: Column(children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Image.asset(
-                                  "assets/images/fried-chicken.png"),
-                            ),
-                          ),
-                          const Text(
-                            "Chicken",
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          )
-                        ]),
-                      ),
-                      Container(
-                        height: 90,
-                        width: 65,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: const Color(0xFF244395)),
-                        child: Column(children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Image.asset("assets/images/hot-dog.png"),
-                            ),
-                          ),
-                          const Text(
-                            "Hot Dog",
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          )
-                        ]),
-                      ),
-                    ],
+                            const Text(
+                              "Hot Dog",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            )
+                          ]),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   Container(
-                    height: 160,
+                    height: 170,
                     width: 400,
+                    // color: Colors.red,
                     child: GridView.builder(
                       itemCount: 8,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20),
+                              crossAxisSpacing: 15,
+                              mainAxisSpacing: 15),
                       itemBuilder: (context, index) {
-                        return Container(
-                          height: 125,
-                          width: 125,
-                          color: Colors.blue,
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: 138,
+                                      width: 250,
+                                      decoration: BoxDecoration(
+                                          color: Colors.blueAccent,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                    ),
+                                    Positioned(
+                                        right: 5,
+                                        child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Icons.favorite_border,
+                                              color: Colors.red,
+                                            ))),
+                                    Positioned(
+                                        bottom: 5,
+                                        child: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            Icons.add_box_outlined,
+                                            color: Colors.white,
+                                          ),
+                                        )),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(4),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        "Pizza",
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Row(
+                                        children: const [
+                                          Icon(
+                                            Icons.star_rounded,
+                                            color: Colors.red,
+                                            size: 15,
+                                          ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          Text(
+                                            "4",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),
@@ -326,23 +448,23 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(items: const [
         BottomNavigationBarItem(
             label: "MENU",
-            icon: Icon(Icons.menu),
+            icon: FaIcon(Icons.restaurant_menu_rounded),
             backgroundColor: Colors.blue),
         BottomNavigationBarItem(
             label: "OFFER",
-            icon: Icon(Icons.discount),
+            icon: FaIcon(Icons.percent_rounded),
             backgroundColor: Colors.blue),
         BottomNavigationBarItem(
             label: "HOME",
-            icon: Icon(Icons.home),
+            icon: FaIcon(Icons.home_rounded),
             backgroundColor: Colors.blue),
         BottomNavigationBarItem(
             label: "CART",
-            icon: Icon(Icons.card_travel),
+            icon: FaIcon(Icons.shopping_cart),
             backgroundColor: Colors.blue),
         BottomNavigationBarItem(
             label: "PROFILE",
-            icon: Icon(Icons.person),
+            icon: FaIcon(Icons.person),
             backgroundColor: Colors.blue),
       ]),
     );
