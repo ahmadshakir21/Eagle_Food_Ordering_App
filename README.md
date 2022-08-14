@@ -14,7 +14,6 @@ A new Flutter app will use for ordering food
 <ul>
   <li>Kurdish Language</li>
   <li>Dark Theme</li>
-  <li>become more greater</li>
 </ul>
 
 ## Author
