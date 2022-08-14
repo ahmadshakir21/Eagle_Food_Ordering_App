@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     width: 370,
                     height: 40,
-                    margin: const EdgeInsets.only(top: 40, bottom: 30),
+                    margin: const EdgeInsets.only(top: 30, bottom: 30),
                     child: TextField(
                       decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.search_rounded),
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                         height: 150,
                         width: 370,
                         decoration: BoxDecoration(
-                            color: Color(0xFF7E7B7B),
+                            color: const Color(0xFF7E7B7B),
                             borderRadius: BorderRadius.circular(15)),
                       ),
                       Positioned(
@@ -110,6 +110,23 @@ class HomeScreen extends StatelessWidget {
                         ]),
                       ),
                       Positioned(
+                        top: 0,
+                        right: 37,
+                        child: Container(
+                          height: 50,
+                          width: 40,
+                          color: Colors.red,
+                          child: const Center(
+                              child: Text(
+                            "NEW",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          )),
+                        ),
+                      ),
+                      Positioned(
                         bottom: 10,
                         right: 10,
                         child: Container(
@@ -128,12 +145,206 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Category",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        height: 90,
+                        width: 65,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color(0xFF244395)),
+                        child: Column(children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Image.asset("assets/images/burger.png"),
+                            ),
+                          ),
+                          const Text(
+                            "Burger",
+                            style: TextStyle(color: Colors.white, fontSize: 13),
+                          )
+                        ]),
+                      ),
+                      Container(
+                        height: 90,
+                        width: 65,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color(0xFF244395)),
+                        child: Column(children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Image.asset("assets/images/pizza.png"),
+                            ),
+                          ),
+                          const Text(
+                            "Pizza",
+                            style: TextStyle(color: Colors.white, fontSize: 13),
+                          )
+                        ]),
+                      ),
+                      Container(
+                        height: 90,
+                        width: 65,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color(0xFF244395)),
+                        child: Column(children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Image.asset(
+                                  "assets/images/fried-potatoes.png"),
+                            ),
+                          ),
+                          const Text(
+                            "Fries",
+                            style: TextStyle(color: Colors.white, fontSize: 13),
+                          )
+                        ]),
+                      ),
+                      Container(
+                        height: 90,
+                        width: 65,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color(0xFF244395)),
+                        child: Column(children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Image.asset(
+                                  "assets/images/fried-chicken.png"),
+                            ),
+                          ),
+                          const Text(
+                            "Chicken",
+                            style: TextStyle(color: Colors.white, fontSize: 13),
+                          )
+                        ]),
+                      ),
+                      Container(
+                        height: 90,
+                        width: 65,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color(0xFF244395)),
+                        child: Column(children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Image.asset("assets/images/hot-dog.png"),
+                            ),
+                          ),
+                          const Text(
+                            "Hot Dog",
+                            style: TextStyle(color: Colors.white, fontSize: 13),
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 160,
+                    width: 400,
+                    child: GridView.builder(
+                      itemCount: 8,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 20),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 125,
+                          width: 125,
+                          color: Colors.blue,
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(
+            label: "MENU",
+            icon: Icon(Icons.menu),
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            label: "OFFER",
+            icon: Icon(Icons.discount),
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            label: "HOME",
+            icon: Icon(Icons.home),
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            label: "CART",
+            icon: Icon(Icons.card_travel),
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            label: "PROFILE",
+            icon: Icon(Icons.person),
+            backgroundColor: Colors.blue),
+      ]),
     );
   }
 }
