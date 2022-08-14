@@ -23,8 +23,8 @@ A new Flutter app will use for ordering food
 ### Feedback
 <p>feeback and suggestion</p>
 <ul>
-  <li><p>Email</p> ahmad.software.developer@gmail.com</li>
-  <li><p>LinkedIn</p>https://www.linkedin.com/in/ahmad-shakir-1a6a95226/</li>
-  <li><p>Phone Number</p>+964 750 715 7007</li>
+  <li>ahmad.software.developer@gmail.com</li>
+  <li>https://www.linkedin.com/in/ahmad-shakir-1a6a95226/</li>
+  <li>+964 750 715 7007</li>
 </ul>
 
