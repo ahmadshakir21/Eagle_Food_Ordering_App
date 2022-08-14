@@ -14,6 +14,7 @@ A new Flutter app will use for ordering food
 <ul>
   <li>Kurdish Language</li>
   <li>Dark Theme</li>
+  <li>become more greater</li>
 </ul>
 
 ### Author
@@ -21,3 +22,9 @@ A new Flutter app will use for ordering food
 
 ### Feedback
 <p>feeback and suggestion</p>
+<ul>
+  <li>ahmad.software.developer@gmail.com</li>
+  <li>https://www.linkedin.com/in/ahmad-shakir-1a6a95226/</li>
+  <li>+964 750 715 7007</li>
+</ul>
+
