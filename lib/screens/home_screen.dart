@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/widgets/item_info.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -362,80 +363,7 @@ class HomeScreen extends StatelessWidget {
                               crossAxisSpacing: 15,
                               mainAxisSpacing: 15),
                       itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 100,
-                            child: Column(
-                              children: [
-                                Stack(
-                                  children: [
-                                    Container(
-                                      height: 138,
-                                      width: 250,
-                                      decoration: BoxDecoration(
-                                          color: Colors.blueAccent,
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                    ),
-                                    Positioned(
-                                        right: 5,
-                                        child: IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              Icons.favorite_border,
-                                              color: Colors.red,
-                                            ))),
-                                    Positioned(
-                                        bottom: 5,
-                                        child: IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.add_box_outlined,
-                                            color: Colors.white,
-                                          ),
-                                        )),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(4),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      const Text(
-                                        "Pizza",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      Row(
-                                        children: const [
-                                          Icon(
-                                            Icons.star_rounded,
-                                            color: Colors.red,
-                                            size: 15,
-                                          ),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Text(
-                                            "4",
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w500),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
+                        return ItemInfo();
                       },
                     ),
                   ),
