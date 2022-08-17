@@ -96,7 +96,35 @@ class SingleFoodDetails extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(),
+              //TODO: create count up & count down button
+              Container(
+                width: 110,
+                decoration: BoxDecoration(
+                    color: Color(0xFFf3f6f9),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Row(children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.remove,
+                        size: 25, color: Color(0xFF244395)),
+                  ),
+                  //TODO: add functionality for the child of Text widget
+                  const Text(
+                    "0",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF244395)),
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add,
+                        size: 25,
+                        color: Color(0xFF244395),
+                      )),
+                ]),
+              ),
               const SizedBox(
                 width: 20,
               ),
