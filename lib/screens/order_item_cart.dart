@@ -10,11 +10,102 @@ class OrderItemCart extends StatelessWidget {
       children: [
         Container(
             height: 260,
-            color: Colors.pink,
-            child: ListView.builder(
-              itemCount: 3,
+            child: ListView.separated(
+              itemCount: 7,
+              separatorBuilder: (context, index) {
+                return const Divider(
+                  thickness: 2,
+                );
+              },
               itemBuilder: (context, index) {
-                return Text("data");
+                return Row(children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      height: 60,
+                      width: 60,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Burger",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            "15\$",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 85,
+                  ),
+                  Container(
+                      height: 50,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          //TODO: create count up & count down button
+                          Container(
+                            width: 110,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFf3f6f9),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Row(children: [
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFF244395),
+                                      borderRadius: BorderRadius.circular(6)),
+                                  child: const Icon(Icons.remove,
+                                      size: 25, color: Color(0xFFf3f6f9)),
+                                ),
+                              ),
+                              //TODO: add functionality for the child of Text widget
+                              Container(
+                                width: 50,
+                                child: const Center(
+                                  child: Text(
+                                    "0",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF244395)),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFF244395),
+                                      borderRadius: BorderRadius.circular(6)),
+                                  child: const Icon(Icons.add,
+                                      size: 25, color: Color(0xFFf3f6f9)),
+                                ),
+                              ),
+                            ]),
+                          ),
+                        ],
+                      ))
+                ]);
               },
             )),
         const SizedBox(
@@ -140,7 +231,7 @@ class OrderItemCart extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 15,
+          height: 20,
         ),
         Container(
           width: 385,

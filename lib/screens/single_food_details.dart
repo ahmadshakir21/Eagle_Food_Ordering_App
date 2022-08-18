@@ -99,34 +99,50 @@ class SingleFoodDetails extends StatelessWidget {
               //TODO: create count up & count down button
               Container(
                 width: 110,
-                decoration: BoxDecoration(
-                    color: Color(0xFFf3f6f9),
-                    borderRadius: BorderRadius.circular(20)),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: Row(children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.remove,
-                        size: 25, color: Color(0xFF244395)),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF244395),
+                          borderRadius: BorderRadius.circular(6)),
+                      child: const Icon(Icons.remove,
+                          size: 25, color: Color(0xFFf3f6f9)),
+                    ),
                   ),
                   //TODO: add functionality for the child of Text widget
-                  const Text(
-                    "0",
-                    style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF244395)),
+                  Container(
+                    width: 50,
+                    child: const Center(
+                      child: Text(
+                        "0",
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF244395)),
+                      ),
+                    ),
                   ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.add,
-                        size: 25,
-                        color: Color(0xFF244395),
-                      )),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF244395),
+                          borderRadius: BorderRadius.circular(6)),
+                      child: const Icon(Icons.add,
+                          size: 25, color: Color(0xFFf3f6f9)),
+                    ),
+                  ),
                 ]),
               ),
               const SizedBox(
-                width: 20,
+                width: 50,
               ),
               Container(
                 width: 160,
@@ -141,7 +157,7 @@ class SingleFoodDetails extends StatelessWidget {
                         color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF244395),
+                      primary: const Color(0xFFE24047),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40))),
                 ),
