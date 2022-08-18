@@ -2,84 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/screens/empty_cart.dart';
+import 'package:food_ordering_app/screens/order_item_cart.dart';
 
 class Cart extends StatelessWidget {
-  const Cart({Key? key}) : super(key: key);
+  Cart({Key? key}) : super(key: key);
+
+  bool havingItem = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf2f2f2),
+      backgroundColor: const Color(0xFFF3F6F9),
       body: Padding(
           padding: const EdgeInsets.all(15),
-          child: Column(children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_back_rounded,
-                      size: 30,
-                      color: Color(0xFF0B2E40),
-                    )),
-                const SizedBox(
-                  width: 120,
-                ),
-                const Text(
-                  "Cart",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF0B2E40),
+          child: SingleChildScrollView(
+            child: Column(children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_back_rounded,
+                        size: 30,
+                        color: Color(0xFF0B2E40),
+                      )),
+                  const SizedBox(
+                    width: 120,
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 115,
-            ),
-            Container(
-                height: 250,
-                width: 250,
-                child: Image.asset("assets/images/Icon.png")),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              "Your cart is empty.",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFF0B2E40)),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Text(
-              "Add something from the Menu.",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFF0B2E40)),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Container(
-                width: 300,
+                  const Text(
+                    "Cart",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF0B2E40),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
                 height: 40,
-                child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)),
-                        primary: const Color(0xFF244395)),
-                    child: const Text("Browse Food Menu")))
-          ])),
+              ),
+              havingItem ? EmptyCart() : OrderItemCart(),
+            ]),
+          )),
       bottomNavigationBar: BottomNavigationBar(items: const [
         BottomNavigationBarItem(
             label: "MENU",
