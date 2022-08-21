@@ -137,7 +137,7 @@ class DeliveryLocation extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(
-                      height: 17,
+                      height: 22,
                     ),
                     Container(
                       width: 420,
@@ -151,7 +151,7 @@ class DeliveryLocation extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 17,
+                      height: 22,
                     ),
                     Container(
                       width: 420,
@@ -165,7 +165,7 @@ class DeliveryLocation extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 17,
+                      height: 22,
                     ),
                     Container(
                       width: 420,
@@ -179,7 +179,7 @@ class DeliveryLocation extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 17,
+                      height: 22,
                     ),
                     Container(
                       width: 420,
@@ -193,54 +193,7 @@ class DeliveryLocation extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 17,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.grey.shade300,
-                          ),
-                          child: const Text(
-                            "Home",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.grey.shade300,
-                          ),
-                          child: const Text(
-                            "Work",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.grey.shade300,
-                          ),
-                          child: const Text(
-                            "Home",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
+                      height: 70,
                     ),
                     Container(
                         height: 40,
