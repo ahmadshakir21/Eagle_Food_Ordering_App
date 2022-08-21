@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_ordering_app/screens/authentication/delivery_location.dart';
+import 'package:food_ordering_app/screens/delivery_location.dart';
 import 'package:food_ordering_app/screens/cart.dart';
 import 'package:food_ordering_app/screens/expoer_menu.dart';
 import 'package:food_ordering_app/screens/home_screen.dart';
