@@ -1,31 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/widgets/drawer_items.dart';
 import 'package:food_ordering_app/widgets/item_info.dart';
 import 'package:food_ordering_app/widgets/new_offer_item.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: Drawer(
+        child: ListView(padding: EdgeInsets.zero, children: [
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Color(0xFF244395),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.mode_edit_outline_rounded,
+                      color: Colors.white,
+                    )),
+                Row(
+                  children: [
+                    Container(
+                      height: 75,
+                      width: 75,
+                      decoration: BoxDecoration(
+                          color: const Color(0xFFC3C3C3),
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: 75,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Ahmad Shakir",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            "ahmad.shakir@gmail.com",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          DrawerItems(icon: Icons.ballot, text: "My Order"),
+          DrawerItems(icon: Icons.favorite, text: "My Favorites"),
+          DrawerItems(icon: Icons.star_rounded, text: "Write Reviews"),
+          DrawerItems(icon: Icons.logout, text: "Logout"),
+        ]),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
+            padding: const EdgeInsets.only(top: 20, right: 25, left: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // TODO: Create Drawer
+                IconButton(
+                    icon: const Icon(
+                      Icons.menu_rounded,
+                      size: 35,
+                      color: Color(0xFF0B2E40),
+                    ),
+                    onPressed: () {
+                      scaffoldKey.currentState!.openDrawer();
+                    }),
                 Container(
-                  height: 50,
-                  width: 50,
-                  color: const Color(0xFF0B2E40),
-                ),
-                Container(
-                  height: 50,
-                  width: 50,
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
                       color: const Color(0xFF0B2E40),
                       borderRadius: BorderRadius.circular(8)),
