@@ -86,59 +86,96 @@ class HomeScreen extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return AlertDialog(
-                    title: const Text(
-                      "Alert",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                    ),
-                    content: const Text(
-                      "Are you Sure want to Logout?",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                    ),
-                    actions: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  return Dialog(
+                    elevation: 5,
+                    alignment: Alignment.center,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Container(
+                      height: 185,
+                      width: 350,
+                      child: Column(
                         children: [
-                          SizedBox(
-                            width: 110,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    primary: const Color(0xFF244395)),
-                                child: const Text(
-                                  "Cancel",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                )),
+                          const SizedBox(
+                            height: 20,
                           ),
-                          SizedBox(
-                            width: 110,
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    primary: const Color(0xFFE24047)),
-                                child: const Text(
-                                  "Logout",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                )),
-                          )
+                          const Text(
+                            "Alert",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF244395)),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "Are you Sure want to Logout?",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF244395)),
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                width: 110,
+                                child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        primary: const Color(0xFF244395)),
+                                    child: const Text(
+                                      "Cancel",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    )),
+                              ),
+                              SizedBox(
+                                width: 110,
+                                child: ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        primary: const Color(0xFFE24047)),
+                                    child: const Text(
+                                      "Logout",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    )),
+                              )
+                            ],
+                          ),
                         ],
                       ),
-                    ],
+                    ),
                   );
+
+                  // AlertDialog(
+                  //   title: const Text(
+                  //     "Alert",
+
+                  //   content: const Text(
+                  //     "Are you Sure want to Logout?",
+                  //     style:
+                  //         TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  //   ),
+                  //   actions: [
+
+                  //   ],
+                  // );
                 },
               );
             },
