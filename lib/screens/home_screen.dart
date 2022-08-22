@@ -466,10 +466,10 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: GNav(
-          activeColor: const Color(0xFF244395),
-          color: const Color(0xFF7E7B7B),
-          tabBackgroundColor: const Color(0xFF244395).withOpacity(0.4),
-          backgroundColor: Colors.white,
+          activeColor: Colors.white,
+          color: Colors.white.withOpacity(0.8),
+          tabBackgroundColor: Colors.white.withOpacity(0.22),
+          backgroundColor: const Color(0xFF244395),
           gap: 10,
           padding: const EdgeInsets.all(15),
           tabs: const [
