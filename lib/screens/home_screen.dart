@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_ordering_app/widgets/drawer_items.dart';
 import 'package:food_ordering_app/widgets/item_info.dart';
 import 'package:food_ordering_app/widgets/new_offer_item.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -19,56 +20,58 @@ class HomeScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color(0xFF244395),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.mode_edit_outline_rounded,
-                      color: Colors.white,
-                    )),
-                Row(
-                  children: [
-                    Container(
-                      height: 75,
-                      width: 75,
-                      decoration: BoxDecoration(
-                          color: const Color(0xFFC3C3C3),
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      height: 75,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Ahmad Shakir",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "ahmad.shakir@gmail.com",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                          ),
-                        ],
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.mode_edit_outline_rounded,
+                        color: Colors.white,
+                      )),
+                  Row(
+                    children: [
+                      Container(
+                        height: 75,
+                        width: 75,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFC3C3C3),
+                            borderRadius: BorderRadius.circular(10)),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Ahmad Shakir",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "ahmad.shakir@gmail.com",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(
@@ -162,20 +165,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   );
-
-                  // AlertDialog(
-                  //   title: const Text(
-                  //     "Alert",
-
-                  //   content: const Text(
-                  //     "Are you Sure want to Logout?",
-                  //     style:
-                  //         TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  //   ),
-                  //   actions: [
-
-                  //   ],
-                  // );
                 },
               );
             },
@@ -456,9 +445,8 @@ class HomeScreen extends StatelessWidget {
                     height: 15,
                   ),
                   Container(
-                    height: 170,
+                    height: 180,
                     width: 400,
-                    // color: Colors.red,
                     child: GridView.builder(
                       itemCount: 8,
                       gridDelegate:
@@ -477,28 +465,58 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(
-            label: "MENU",
-            icon: FaIcon(Icons.restaurant_menu_rounded),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "OFFER",
-            icon: FaIcon(Icons.percent_rounded),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "HOME",
-            icon: FaIcon(Icons.home_rounded),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "CART",
-            icon: FaIcon(Icons.shopping_cart),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "PROFILE",
-            icon: FaIcon(Icons.person),
-            backgroundColor: Colors.blue),
-      ]),
+      bottomNavigationBar: GNav(
+          activeColor: const Color(0xFF244395),
+          color: const Color(0xFF7E7B7B),
+          tabBackgroundColor: const Color(0xFF244395).withOpacity(0.4),
+          backgroundColor: Colors.white,
+          gap: 10,
+          padding: const EdgeInsets.all(15),
+          tabs: const [
+            GButton(
+              icon: Icons.home,
+              text: 'Home',
+            ),
+            GButton(
+              icon: Icons.menu,
+              text: 'Menu',
+            ),
+            GButton(
+              icon: Icons.local_offer,
+              text: 'Offer',
+            ),
+            GButton(
+              icon: Icons.shopping_cart_checkout_rounded,
+              text: 'Cart',
+            ),
+            GButton(
+              icon: Icons.person,
+              text: 'Profile',
+            )
+          ]),
+
+      // BottomNavigationBar(items: const [
+      //   BottomNavigationBarItem(
+      //       label: "MENU",
+      //       icon: FaIcon(Icons.restaurant_menu_rounded),
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       label: "OFFER",
+      //       icon: FaIcon(Icons.percent_rounded),
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       label: "HOME",
+      //       icon: FaIcon(Icons.home_rounded),
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       label: "CART",
+      //       icon: FaIcon(Icons.shopping_cart),
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       label: "PROFILE",
+      //       icon: FaIcon(Icons.person),
+      //       backgroundColor: Colors.blue),
+      // ]
     );
   }
 }
