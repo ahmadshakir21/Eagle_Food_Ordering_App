@@ -14,9 +14,6 @@ class EmptyMyOrder extends StatelessWidget {
         width: 300,
         child: Image.asset("assets/images/Icon2.png"),
       ),
-      const SizedBox(
-        height: 40,
-      ),
       const Text(
         "No Order Available",
         style: TextStyle(

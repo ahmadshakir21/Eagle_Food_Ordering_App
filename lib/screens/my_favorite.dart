@@ -4,7 +4,7 @@ import 'package:food_ordering_app/screens/non_empty_my_favorite.dart';
 
 class MyFavorite extends StatelessWidget {
   MyFavorite({Key? key}) : super(key: key);
-  bool havingItem = true;
+  bool havingItem = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +27,10 @@ class MyFavorite extends StatelessWidget {
                           color: Color(0xFF0B2E40),
                         )),
                     const SizedBox(
-                      width: 100,
+                      width: 85,
                     ),
                     const Text(
-                      "My Order",
+                      "My Favorite",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,

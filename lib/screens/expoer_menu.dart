@@ -63,8 +63,8 @@ class ExporeMenu extends StatelessWidget {
                 itemCount: 8,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10),
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20),
                 itemBuilder: (context, index) {
                   return ItemInfo();
                 },
