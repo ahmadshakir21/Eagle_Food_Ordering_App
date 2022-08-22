@@ -73,6 +73,8 @@ flutter:
     - assets/images/menu.png
     - assets/images/Icon.png
     - assets/images/52110.jpg
+    - assets/images/Icon2.png
+    - assets/images/Group 26.png
     - assets/images/Json_for_lottie_package/109517-delivery.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
