@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_ordering_app/widgets/drawer_items.dart';
@@ -7,6 +8,7 @@ import 'package:food_ordering_app/widgets/new_offer_item.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,10 +74,75 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          DrawerItems(icon: Icons.ballot, text: "My Order"),
-          DrawerItems(icon: Icons.favorite, text: "My Favorites"),
-          DrawerItems(icon: Icons.star_rounded, text: "Write Reviews"),
-          DrawerItems(icon: Icons.logout, text: "Logout"),
+          DrawerItems(icon: Icons.ballot, text: "My Order", onClick: () {}),
+          DrawerItems(
+              icon: Icons.favorite, text: "My Favorites", onClick: () {}),
+          DrawerItems(
+              icon: Icons.star_rounded, text: "Write Reviews", onClick: () {}),
+          DrawerItems(
+            icon: Icons.logout,
+            text: "Logout",
+            onClick: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text(
+                      "Alert",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                    content: const Text(
+                      "Are you Sure want to Logout?",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                    actions: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            width: 110,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    primary: const Color(0xFF244395)),
+                                child: const Text(
+                                  "Cancel",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
+                                )),
+                          ),
+                          SizedBox(
+                            width: 110,
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    primary: const Color(0xFFE24047)),
+                                child: const Text(
+                                  "Logout",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
+                                )),
+                          )
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
         ]),
       ),
       body: Column(

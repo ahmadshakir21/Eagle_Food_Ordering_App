@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 class DrawerItems extends StatelessWidget {
   String text;
   IconData icon;
+  VoidCallback onClick;
 
-  DrawerItems({required this.icon, required this.text});
+  DrawerItems({required this.icon, required this.text, required this.onClick});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onClick,
       child: Container(
         height: 70,
         margin: const EdgeInsets.all(10),
