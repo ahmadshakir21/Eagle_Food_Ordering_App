@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/widgets/bottom_navigation_bar.dart';
 import 'package:food_ordering_app/widgets/drawer_items.dart';
 import 'package:food_ordering_app/widgets/item_info.dart';
 import 'package:food_ordering_app/widgets/new_offer_item.dart';
@@ -458,7 +459,7 @@ class HomeScreen extends StatelessWidget {
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20),
                         itemBuilder: (context, index) {
-                          return ItemInfo();
+                          return const ItemInfo();
                         },
                       ),
                     ),
@@ -469,58 +470,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const GNav(
-          activeColor: Colors.white,
-          color: Colors.white54,
-          tabBackgroundColor: Colors.white12,
-          backgroundColor: Color(0xFF244395),
-          gap: 10,
-          padding: EdgeInsets.all(15),
-          tabs: [
-            GButton(
-              icon: Icons.home,
-              text: 'Home',
-            ),
-            GButton(
-              icon: Icons.restaurant_menu_rounded,
-              text: 'Menu',
-            ),
-            GButton(
-              icon: IconData(0xf06bd, fontFamily: 'MaterialIcons'),
-              text: 'Offer',
-            ),
-            GButton(
-              icon: Icons.shopping_cart_rounded,
-              text: 'Cart',
-            ),
-            GButton(
-              icon: Icons.person,
-              text: 'Profile',
-            )
-          ]),
-
-      // BottomNavigationBar(items: const [
-      //   BottomNavigationBarItem(
-      //       label: "MENU",
-      //       icon: FaIcon(Icons.restaurant_menu_rounded),
-      //       backgroundColor: Colors.blue),
-      //   BottomNavigationBarItem(
-      //       label: "OFFER",
-      //       icon: FaIcon(Icons.percent_rounded),
-      //       backgroundColor: Colors.blue),
-      //   BottomNavigationBarItem(
-      //       label: "HOME",
-      //       icon: FaIcon(Icons.home_rounded),
-      //       backgroundColor: Colors.blue),
-      //   BottomNavigationBarItem(
-      //       label: "CART",
-      //       icon: FaIcon(Icons.shopping_cart),
-      //       backgroundColor: Colors.blue),
-      //   BottomNavigationBarItem(
-      //       label: "PROFILE",
-      //       icon: FaIcon(Icons.person),
-      //       backgroundColor: Colors.blue),
-      // ]
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

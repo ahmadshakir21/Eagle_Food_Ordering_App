@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_ordering_app/screens/empty_cart.dart';
 import 'package:food_ordering_app/screens/order_item_cart.dart';
+import 'package:food_ordering_app/widgets/bottom_navigation_bar.dart';
 
 class Cart extends StatelessWidget {
   Cart({Key? key}) : super(key: key);
@@ -50,28 +51,7 @@ class Cart extends StatelessWidget {
               havingItem ? EmptyCart() : OrderItemCart(),
             ]),
           )),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(
-            label: "MENU",
-            icon: FaIcon(Icons.restaurant_menu_rounded),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "OFFER",
-            icon: FaIcon(Icons.percent_rounded),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "HOME",
-            icon: FaIcon(Icons.home_rounded),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "CART",
-            icon: FaIcon(Icons.shopping_cart),
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            label: "PROFILE",
-            icon: FaIcon(Icons.person),
-            backgroundColor: Colors.blue),
-      ]),
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

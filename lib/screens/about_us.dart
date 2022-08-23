@@ -39,18 +39,20 @@ class AboutUs extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 40,
+                height: 30,
               ),
               Container(
-                height: 300,
-                width: 300,
+                height: 250,
+                width: 250,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFc4c4c4),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Image.asset(
-                  "assets/images/photo_5199812254550311358_y.jpg",
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    "assets/images/photo_5199812254550311358_y.jpg",
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -74,7 +76,7 @@ class AboutUs extends StatelessWidget {
                     color: Color(0xFF0B2E40)),
               ),
               const SizedBox(
-                height: 55,
+                height: 110,
               ),
               SizedBox(
                 width: 300,
