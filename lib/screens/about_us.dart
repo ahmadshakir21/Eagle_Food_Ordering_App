@@ -45,8 +45,13 @@ class AboutUs extends StatelessWidget {
                 height: 300,
                 width: 300,
                 decoration: BoxDecoration(
-                    color: const Color(0xFFc4c4c4),
-                    borderRadius: BorderRadius.circular(20)),
+                  color: const Color(0xFFc4c4c4),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Image.asset(
+                  "assets/images/photo_5199812254550311358_y.jpg",
+                  fit: BoxFit.cover,
+                ),
               ),
               const SizedBox(
                 height: 25,
