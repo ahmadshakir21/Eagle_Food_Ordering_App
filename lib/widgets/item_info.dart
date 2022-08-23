@@ -94,10 +94,10 @@ class ItemInfo extends StatelessWidget {
                     color: Color(0xFF244395)),
               ),
               SizedBox(
-                width: 50,
+                width: 65,
               ),
               Text(
-                "McDonalds",
+                "Hardees",
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
