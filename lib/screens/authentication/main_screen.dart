@@ -4,7 +4,7 @@ import 'package:food_ordering_app/screens/authentication/authentication_sign_in.
 import 'package:food_ordering_app/screens/home_screen.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,11 @@ class MainScreen extends StatelessWidget {
       body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return const Center(child: Text("Something went wrong"));
+          } else if (snapshot.hasData) {
             return HomeScreen();
           } else {
             return AuthenticationSignIn();
