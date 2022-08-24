@@ -1,9 +1,39 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AuthenticationSignIn extends StatelessWidget {
-  const AuthenticationSignIn({Key? key}) : super(key: key);
+class AuthenticationSignIn extends StatefulWidget {
+  AuthenticationSignIn({Key? key}) : super(key: key);
+
+  @override
+  State<AuthenticationSignIn> createState() => _AuthenticationSignInState();
+}
+
+class _AuthenticationSignInState extends State<AuthenticationSignIn> {
+  late final TextEditingController emailController;
+
+  late final TextEditingController passwordController;
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +65,8 @@ class AuthenticationSignIn extends StatelessWidget {
               child: Container(
                 width: 370,
                 height: 40,
-                child: TextField(
+                child: TextFormField(
+                  controller: emailController,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
@@ -60,7 +91,8 @@ class AuthenticationSignIn extends StatelessWidget {
               child: Container(
                 width: 370,
                 height: 40,
-                child: TextField(
+                child: TextFormField(
+                  controller: passwordController,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xFFD9D9D9),
@@ -80,11 +112,12 @@ class AuthenticationSignIn extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text("SIGN IN"),
-                      style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF244395),
-                      )),
+                    onPressed: signIn,
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color(0xFF244395),
+                    ),
+                    child: const Text("SIGN IN"),
+                  ),
                 ),
               ),
             ),

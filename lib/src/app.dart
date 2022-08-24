@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_ordering_app/screens/about_us.dart';
+import 'package:food_ordering_app/screens/authentication/authentication_sign_in.dart';
+import 'package:food_ordering_app/screens/authentication/main_screen.dart';
 import 'package:food_ordering_app/screens/delivery_location.dart';
 import 'package:food_ordering_app/screens/cart.dart';
 import 'package:food_ordering_app/screens/edit_profile.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }
