@@ -3,7 +3,7 @@
 A new Flutter app will use for ordering food
 
 ## Eagle Logo
-<img src="C:\Users\MIQDAD\Desktop\Food-Ordering-App\Eagle Logo.jpg">
+<img src="Food-Ordering-App\Eagle Logo.jpg">
 
 ## App Screen
 
