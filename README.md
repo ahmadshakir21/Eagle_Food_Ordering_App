@@ -1,9 +1,19 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> a02b61ac59fdaaa2073c8f8caa914b0a09b5c2ec
 # Eagle
 
 A new Flutter app will use for ordering food
 
+<<<<<<< HEAD
 
+=======
+## Eagle Logo
+<picture>
+<img src="\Food-Ordering-App\Eagle Logo.jpg">
+ </picture>
+>>>>>>> a02b61ac59fdaaa2073c8f8caa914b0a09b5c2ec
 
 ## App Screen
 
