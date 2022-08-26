@@ -1,19 +1,8 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> a02b61ac59fdaaa2073c8f8caa914b0a09b5c2ec
 # Eagle
 
 A new Flutter app will use for ordering food
 
-<<<<<<< HEAD
-
-=======
 ## Eagle Logo
-<picture>
-<img src="\Food-Ordering-App\Eagle Logo.jpg">
- </picture>
->>>>>>> a02b61ac59fdaaa2073c8f8caa914b0a09b5c2ec
 
 ## App Screen
 
@@ -56,13 +45,13 @@ A new Flutter app will use for ordering food
 To clone and run this application, you'll need Git and Flutter installed on your computer, after that from your command line:
 
 ```bash
-  `Clone this repository`
+  Clone this repository
   $ git clone https://github.com/ahmadshakir21/Eagle_Food_Ordering_App.git
 
-  `Go into the repository`
+  Go into the repository
   $ cd Eagle_Food_Ordering_App
 
-  `Install dependencies`
+  Install dependencies
   $ flutter pub get
 ```
     
