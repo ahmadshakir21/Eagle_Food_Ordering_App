@@ -1,47 +1,72 @@
-# Food-Ordering-App
+
+# Eagle
 
 A new Flutter app will use for ordering food
 
-## Food-Ordering-App Logo
+
 
 ## App Screen
 
-## Colors & Fonts
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#244395](https://via.placeholder.com/10/244395?text=+) #244395 |
+| Example Color | ![#0B2E40](https://via.placeholder.com/10/0B2E40?text=+) #0B2E40 |
+| Example Color | ![#E24047](https://via.placeholder.com/10/E24047?text=+) #E24047 |
+| Example Color | ![#C4C4C4](https://via.placeholder.com/10/C4C4C4?text=+) #C4C4C4 |
+
 
 ## Features
-<ul>
-  <li>Splash Screen</li>
-  <li>Onboarding Screen</li>
-  <li>Authentication (Sign in - Sign Up - Verification Code - Logout)</li>
-  <li>Ordering food</li>
-  <li>Deleting ordered food</li>
-  <li>Favorite Icon button (selecting your favorite food and removing your favorite food)</li>
-  <li>Filtering your favorite food</li>
-  <li>Discount (by sending special code)</li>
-  <li>Lottie Package</li>
-  <li>Change profile image</li>
-  <li>Writing review (Feedback)</li>
-  <li>Cross Platform (Android - IOS)</li>
-</ul>
 
-## Future Version Features (in sha allah)
-<ul>
-  <li>Kurdish Language</li>
-  <li>Dark Theme</li>
-</ul>
+  - Splash Screen
+  - Onboarding Screen
+  - Authentication (Sign in - Sign Up - Verification Code - Logout)
+  - Ordering food
+  - Deleting ordered food
+  - Favorite Icon button (selecting your favorite food and removing your favorite food)
+  - Filtering your favorite food
+  - Discount (by sending special code)
+  - Lottie Package
+  - Change profile image
+  - Writing review (Feedback)
+  - Cross Platform (Android - IOS)
 
-## Using this repository
 
+  ## Future Version ( In sha allah )
+   
+   - Kurdish Language
+   - Dark Theme
+
+
+## Run Locally 
+
+To clone and run this application, you'll need Git and Flutter installed on your computer, after that from your command line:
+
+```bash
+  `Clone this repository`
+  $ git clone https://github.com/ahmadshakir21/Eagle_Food_Ordering_App.git
+
+  `Go into the repository`
+  $ cd Eagle_Food_Ordering_App
+
+  `Install dependencies`
+  $ flutter pub get
+```
+    
 ## Flutter Packages
+## Authors
 
-## Author
-<a href = "https://github.com/ahmadshakir21">@ahmadshakir21</a>
+- [@ahmadshakir21](https://github.com/ahmadshakir21)
 
-## Feedback and Suggestion
-<ul>
-  <li>ahmad.software.developer@gmail.com</li>
-  <li>https://www.linkedin.com/in/ahmad-shakir-1a6a95226/</li>
-  <li>+964 750 715 7007</li>
-</ul>
+
+## Feedback
+
+  - Email : ahmad.software.developer@gmail.com
+  - LinkedIn : https://www.linkedin.com/in/ahmad-shakir-1a6a95226/
+  - Phone Number : +964 750 715 7007
+
 
 ## Conclusion
