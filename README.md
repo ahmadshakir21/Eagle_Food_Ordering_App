@@ -1,8 +1,8 @@
-# Food-Ordering-App
+# Eagle
 
 A new Flutter app will use for ordering food
 
-## Food-Ordering-App Logo
+## Eagle Logo
 
 ## App Screen
 
