@@ -1,9 +1,43 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AuthenticationSignUp extends StatelessWidget {
-  const AuthenticationSignUp({Key? key}) : super(key: key);
+class AuthenticationSignUp extends StatefulWidget {
+  const AuthenticationSignUp({Key? key, required this.onClickedSignIn})
+      : super(key: key);
+
+  final VoidCallback onClickedSignIn;
+
+  @override
+  State<AuthenticationSignUp> createState() => _AuthenticationSignUpState();
+}
+
+class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+
+  @override
+  void dispose() {
+    userNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    phoneNumberController.dispose();
+    super.dispose();
+  }
+
+  Future signUp() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+    ;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +124,7 @@ class AuthenticationSignUp extends StatelessWidget {
           width: 370,
           height: 40,
           child: TextField(
+            controller: userNameController,
             decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFD9D9D9),
@@ -115,6 +150,7 @@ class AuthenticationSignUp extends StatelessWidget {
           width: 370,
           height: 40,
           child: TextField(
+            controller: emailController,
             decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFD9D9D9),
@@ -142,6 +178,7 @@ class AuthenticationSignUp extends StatelessWidget {
           width: 370,
           height: 40,
           child: TextField(
+            controller: passwordController,
             decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFD9D9D9),
@@ -167,6 +204,7 @@ class AuthenticationSignUp extends StatelessWidget {
           width: 370,
           height: 40,
           child: TextField(
+            controller: phoneNumberController,
             decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFD9D9D9),
@@ -187,11 +225,12 @@ class AuthenticationSignUp extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(100),
             child: ElevatedButton(
-                onPressed: () {},
-                child: Text("SIGN UP"),
-                style: ElevatedButton.styleFrom(
-                  primary: const Color(0xFF244395),
-                )),
+              onPressed: signUp,
+              style: ElevatedButton.styleFrom(
+                primary: const Color(0xFF244395),
+              ),
+              child: const Text("SIGN UP"),
+            ),
           ),
         ),
       ),
@@ -207,7 +246,8 @@ class AuthenticationSignUp extends StatelessWidget {
                 children: <TextSpan>[
               TextSpan(
                   text: ' Sign In',
-                  recognizer: TapGestureRecognizer()..onTap = () {},
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = widget.onClickedSignIn,
                   style: const TextStyle(
                       color: Color(0xFF244395),
                       fontSize: 16,
