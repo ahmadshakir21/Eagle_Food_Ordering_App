@@ -12,67 +12,69 @@ class OffersAndDeals extends StatelessWidget {
       backgroundColor: const Color(0xFFf2f2f2),
       body: Padding(
         padding: const EdgeInsets.all(15),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_back_rounded,
-                      size: 30,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_back_rounded,
+                        size: 30,
+                        color: Color(0xFF0B2E40),
+                      )),
+                  const SizedBox(
+                    width: 75,
+                  ),
+                  const Text(
+                    "Offers & Deals",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
                       color: Color(0xFF0B2E40),
-                    )),
-                const SizedBox(
-                  width: 75,
-                ),
-                const Text(
-                  "Offers & Deals",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF0B2E40),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 35,
-            ),
-            Container(
-              height: 600,
-              //TODO: Change it to ListView.builder
-              child: SingleChildScrollView(
-                  child: Column(
-                children: const [
-                  NewOfferItem(),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  NewOfferItem(),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  NewOfferItem(),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  NewOfferItem(),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  NewOfferItem()
                 ],
-              )),
-            ),
-          ],
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              Container(
+                height: 600,
+                //TODO: Change it to ListView.builder
+                child: SingleChildScrollView(
+                    child: Column(
+                  children: const [
+                    NewOfferItem(),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    NewOfferItem(),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    NewOfferItem(),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    NewOfferItem(),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    NewOfferItem()
+                  ],
+                )),
+              ),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      // bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

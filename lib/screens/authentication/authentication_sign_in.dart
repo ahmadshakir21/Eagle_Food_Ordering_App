@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationSignIn extends StatefulWidget {
   const AuthenticationSignIn({Key? key, required this.onClickedSignUp})
@@ -20,6 +21,8 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
   late final TextEditingController passwordController;
 
   final formKey = GlobalKey<FormState>();
+
+  GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
 
   @override
   void initState() {
@@ -177,7 +180,10 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                       border: Border.all(
                           color: const Color(0xFF244395), width: 1.5)),
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await googleSignIn.signIn();
+                        setState(() {});
+                      },
                       icon: const FaIcon(
                         FontAwesomeIcons.google,
                         color: Color(0xFF244395),

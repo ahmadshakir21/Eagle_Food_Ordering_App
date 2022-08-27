@@ -51,7 +51,7 @@ class Cart extends StatelessWidget {
               havingItem ? EmptyCart() : OrderItemCart(),
             ]),
           )),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      // bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

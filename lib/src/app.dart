@@ -16,6 +16,7 @@ import 'package:food_ordering_app/screens/single_food_details.dart';
 import 'package:food_ordering_app/screens/splash_screen.dart';
 import 'package:food_ordering_app/screens/authentication/verification_code.dart';
 import 'package:food_ordering_app/screens/successful.dart';
+import 'package:food_ordering_app/screens/test.dart';
 import 'package:food_ordering_app/screens/write_review.dart';
 
 class MyApp extends StatelessWidget {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: Test(),
     );
   }
 }
