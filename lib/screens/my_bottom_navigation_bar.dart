@@ -16,7 +16,7 @@ class _TestState extends State<Test> {
   int currentTab = 0;
   final List screens = [
     ExporeMenu(),
-    OffersAndDeals(),
+    const OffersAndDeals(),
     HomeScreen(),
     Cart(),
     EditProfile()
