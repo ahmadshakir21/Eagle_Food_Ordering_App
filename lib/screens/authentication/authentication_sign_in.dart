@@ -122,7 +122,6 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                     ),
                   ]),
             ),
-
             const SizedBox(
               height: 80,
             ),
@@ -143,56 +142,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
               ),
             ),
             const SizedBox(
-              height: 50,
-            ),
-            const Center(
-              child: Text("OR",
-                  style: TextStyle(
-                      color: Color(0xFF0B2E40),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            // TODO: change the icons to real icon
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                          color: const Color(0xFF244395), width: 1.5)),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.facebookF,
-                        color: Color(0xFF244395),
-                      )),
-                ),
-                const SizedBox(
-                  width: 50,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                          color: const Color(0xFF244395), width: 1.5)),
-                  child: IconButton(
-                      onPressed: () async {
-                        await googleSignIn.signIn();
-                        setState(() {});
-                      },
-                      icon: const FaIcon(
-                        FontAwesomeIcons.google,
-                        color: Color(0xFF244395),
-                      )),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 80,
+              height: 225,
             ),
             Center(
               child: RichText(

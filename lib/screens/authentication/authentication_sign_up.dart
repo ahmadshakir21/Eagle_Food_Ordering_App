@@ -64,53 +64,9 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
               fontSize: 16,
             )),
       ),
-
       const SizedBox(
-        height: 40,
+        height: 70,
       ),
-
-      // TODO: change the icons to real icon
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFF244395), width: 1.5)),
-            child: IconButton(
-                onPressed: () {},
-                icon: const FaIcon(
-                  FontAwesomeIcons.facebookF,
-                  color: Color(0xFF244395),
-                )),
-          ),
-          const SizedBox(
-            width: 40,
-          ),
-          Container(
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFF244395), width: 1.5)),
-            child: IconButton(
-                onPressed: () {},
-                icon: const FaIcon(
-                  FontAwesomeIcons.google,
-                  color: Color(0xFF244395),
-                )),
-          ),
-        ],
-      ),
-      const SizedBox(
-        height: 30,
-      ),
-      const Center(
-        child: Text("OR",
-            style: TextStyle(
-                color: Color(0xFF0B2E40),
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
-      ),
-
       const Padding(
         padding: EdgeInsets.all(8),
         child: Text("User-Name",
@@ -160,11 +116,9 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
           ),
         ),
       ),
-
       const SizedBox(
         height: 15,
       ),
-
       const Padding(
         padding: EdgeInsets.all(8),
         child: Text("Password",
@@ -214,7 +168,6 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
           ),
         ),
       ),
-
       const SizedBox(
         height: 65,
       ),
@@ -235,9 +188,8 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
         ),
       ),
       const SizedBox(
-        height: 40,
+        height: 90,
       ),
-
       Center(
         child: RichText(
             text: TextSpan(
