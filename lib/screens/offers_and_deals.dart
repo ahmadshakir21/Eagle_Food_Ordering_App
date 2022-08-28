@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:food_ordering_app/widgets/bottom_navigation_bar.dart';
+import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
 import 'package:food_ordering_app/widgets/new_offer_item.dart';
 
 class OffersAndDeals extends StatelessWidget {
@@ -74,7 +74,6 @@ class OffersAndDeals extends StatelessWidget {
           ),
         ),
       ),
-      // bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

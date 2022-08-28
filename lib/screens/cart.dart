@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_ordering_app/screens/empty_cart.dart';
+import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
 import 'package:food_ordering_app/screens/order_item_cart.dart';
-import 'package:food_ordering_app/widgets/bottom_navigation_bar.dart';
 
 class Cart extends StatelessWidget {
   Cart({Key? key}) : super(key: key);
@@ -51,7 +49,6 @@ class Cart extends StatelessWidget {
               havingItem ? EmptyCart() : OrderItemCart(),
             ]),
           )),
-      // bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

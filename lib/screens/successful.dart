@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:food_ordering_app/widgets/bottom_navigation_bar.dart';
+import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
 import 'package:lottie/lottie.dart';
 
 class Successful extends StatelessWidget {
@@ -27,7 +27,6 @@ class Successful extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

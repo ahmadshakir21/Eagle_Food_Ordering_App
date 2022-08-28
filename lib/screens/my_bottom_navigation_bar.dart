@@ -5,21 +5,21 @@ import 'package:food_ordering_app/screens/expoer_menu.dart';
 import 'package:food_ordering_app/screens/home_screen.dart';
 import 'package:food_ordering_app/screens/offers_and_deals.dart';
 
-class Test extends StatefulWidget {
-  Test({Key? key}) : super(key: key);
+class MyBottomNavigationBar extends StatefulWidget {
+  MyBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
-  State<Test> createState() => _TestState();
+  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
 }
 
-class _TestState extends State<Test> {
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int currentTab = 0;
   final List screens = [
-    ExporeMenu(),
-    const OffersAndDeals(),
     HomeScreen(),
+    const ExporeMenu(),
+    const OffersAndDeals(),
     Cart(),
-    EditProfile()
+    const EditProfile()
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -39,11 +39,12 @@ class _TestState extends State<Test> {
               currentTab = 0;
             });
           },
+          backgroundColor: const Color(0xFF244395),
           child: const Icon(Icons.home),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           notchMargin: 10,
           child: Container(
             height: 60,
@@ -56,7 +57,7 @@ class _TestState extends State<Test> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            currentScreen = ExporeMenu();
+                            currentScreen = const ExporeMenu();
                             currentTab = 1;
                           });
                         },
@@ -66,15 +67,16 @@ class _TestState extends State<Test> {
                             children: [
                               Icon(
                                 Icons.restaurant_menu,
-                                color:
-                                    currentTab == 1 ? Colors.blue : Colors.grey,
+                                color: currentTab == 1
+                                    ? const Color(0xFF244395)
+                                    : const Color(0xFF7E7B7B),
                               ),
                               Text(
                                 "Menu",
                                 style: TextStyle(
                                   color: currentTab == 1
-                                      ? Colors.blue
-                                      : Colors.grey,
+                                      ? const Color(0xFF244395)
+                                      : const Color(0xFF7E7B7B),
                                 ),
                               ),
                             ]),
@@ -82,7 +84,7 @@ class _TestState extends State<Test> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            currentScreen = OffersAndDeals();
+                            currentScreen = const OffersAndDeals();
                             currentTab = 2;
                           });
                         },
@@ -92,15 +94,16 @@ class _TestState extends State<Test> {
                             children: [
                               Icon(
                                 Icons.discount,
-                                color:
-                                    currentTab == 2 ? Colors.blue : Colors.grey,
+                                color: currentTab == 2
+                                    ? const Color(0xFF244395)
+                                    : const Color(0xFF7E7B7B),
                               ),
                               Text(
                                 "Offers",
                                 style: TextStyle(
                                   color: currentTab == 2
-                                      ? Colors.blue
-                                      : Colors.grey,
+                                      ? const Color(0xFF244395)
+                                      : const Color(0xFF7E7B7B),
                                 ),
                               ),
                             ]),
@@ -123,15 +126,16 @@ class _TestState extends State<Test> {
                             children: [
                               Icon(
                                 Icons.shopping_cart,
-                                color:
-                                    currentTab == 3 ? Colors.blue : Colors.grey,
+                                color: currentTab == 3
+                                    ? const Color(0xFF244395)
+                                    : const Color(0xFF7E7B7B),
                               ),
                               Text(
                                 "Cart",
                                 style: TextStyle(
                                   color: currentTab == 3
-                                      ? Colors.blue
-                                      : Colors.grey,
+                                      ? const Color(0xFF244395)
+                                      : const Color(0xFF7E7B7B),
                                 ),
                               ),
                             ]),
@@ -139,7 +143,7 @@ class _TestState extends State<Test> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            currentScreen = EditProfile();
+                            currentScreen = const EditProfile();
                             currentTab = 4;
                           });
                         },
@@ -149,15 +153,16 @@ class _TestState extends State<Test> {
                             children: [
                               Icon(
                                 Icons.person,
-                                color:
-                                    currentTab == 4 ? Colors.blue : Colors.grey,
+                                color: currentTab == 4
+                                    ? const Color(0xFF244395)
+                                    : const Color(0xFF7E7B7B),
                               ),
                               Text(
                                 "Profile",
                                 style: TextStyle(
                                   color: currentTab == 4
-                                      ? Colors.blue
-                                      : Colors.grey,
+                                      ? const Color(0xFF244395)
+                                      : const Color(0xFF7E7B7B),
                                 ),
                               ),
                             ]),

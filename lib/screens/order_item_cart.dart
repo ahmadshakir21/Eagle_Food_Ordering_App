@@ -9,7 +9,7 @@ class OrderItemCart extends StatelessWidget {
     return Column(
       children: [
         Container(
-            height: 260,
+            height: 200,
             child: ListView.separated(
               itemCount: 7,
               separatorBuilder: (context, index) {
@@ -109,7 +109,7 @@ class OrderItemCart extends StatelessWidget {
               },
             )),
         const SizedBox(
-          height: 40,
+          height: 55,
         ),
         Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
