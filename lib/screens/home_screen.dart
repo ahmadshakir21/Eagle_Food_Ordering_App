@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/models/user_model.dart';
 import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
+import 'package:food_ordering_app/screens/single_food_details.dart';
 import 'package:food_ordering_app/widgets/drawer_items.dart';
 import 'package:food_ordering_app/widgets/item_info.dart';
 import 'package:food_ordering_app/widgets/new_offer_item.dart';
@@ -260,18 +262,21 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    Container(
-                      height: 500,
-                      child: GridView.builder(
-                        itemCount: 12,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20),
-                        itemBuilder: (context, index) {
-                          return const ItemInfo();
-                        },
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        height: 500,
+                        child: GridView.builder(
+                          itemCount: 12,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20),
+                          itemBuilder: (context, index) {
+                            return const ItemInfo();
+                          },
+                        ),
                       ),
                     ),
                   ],

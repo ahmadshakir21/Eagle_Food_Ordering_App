@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_ordering_app/screens/admin/admin_panel.dart';
 import 'package:food_ordering_app/screens/authentication/auth_screen.dart';
 import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
 
@@ -19,7 +20,7 @@ class MainScreen extends StatelessWidget {
           } else if (snapshot.hasData) {
             return MyBottomNavigationBar();
           } else {
-            return const AuthScreen();
+            return AuthScreen();
           }
         },
       ),

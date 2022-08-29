@@ -1,9 +1,8 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:food_ordering_app/screens/admin/admin_panel.dart';
 
 class AuthenticationSignIn extends StatefulWidget {
   const AuthenticationSignIn({Key? key, required this.onClickedSignUp})
@@ -22,8 +21,6 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
 
   final formKey = GlobalKey<FormState>();
 
-  GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
-
   @override
   void initState() {
     emailController = TextEditingController();
@@ -38,18 +35,11 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
     super.dispose();
   }
 
-  Future signIn() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
-    } on FirebaseAuthException catch (e) {
-      print(e);
-    }
-  }
+  Future signIn() async {}
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -132,7 +122,15 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: ElevatedButton(
-                    onPressed: signIn,
+                    onPressed: () async {
+                      try {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: emailController.text.trim(),
+                            password: passwordController.text.trim());
+                      } on FirebaseAuthException catch (e) {
+                        print(e);
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: const Color(0xFF244395),
                     ),

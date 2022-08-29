@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/models/user_model.dart';
 
 class AuthenticationSignUp extends StatefulWidget {
   const AuthenticationSignUp({Key? key, required this.onClickedSignIn})
@@ -19,6 +22,8 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
 
+  final auth = FirebaseAuth.instance;
+
   @override
   void dispose() {
     userNameController.dispose();
@@ -30,13 +35,31 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
 
   Future signUp() async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailController.text.trim(),
+              password: passwordController.text.trim())
+          .then((value) => sendInfoForCloudFirestore());
     } on FirebaseAuthException catch (e) {
       print(e);
     }
-    ;
+  }
+
+  sendInfoForCloudFirestore() async {
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+    User? user = auth.currentUser;
+    UserModel userModel = UserModel();
+
+    userModel.uID = user?.uid;
+    userModel.name = userNameController.text;
+    userModel.email = user?.email;
+    userModel.phoneNumber = int.parse(phoneNumberController.text);
+
+    await firebaseFirestore
+        .collection("user")
+        .doc(user?.uid)
+        .set(userModel.toMap());
   }
 
   @override
