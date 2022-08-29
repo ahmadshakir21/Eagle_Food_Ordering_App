@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:food_ordering_app/screens/admin/admin_panel.dart';
+import 'package:food_ordering_app/screens/authentication/forget_password.dart';
 
 class AuthenticationSignIn extends StatefulWidget {
   const AuthenticationSignIn({Key? key, required this.onClickedSignUp})
@@ -112,8 +112,20 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                     ),
                   ]),
             ),
+            ListTile(
+              trailing: TextButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) {
+                          return ForgetPassword();
+                        },
+                      )),
+                  child: const Text(
+                    "Forget Password",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  )),
+            ),
             const SizedBox(
-              height: 80,
+              height: 50,
             ),
             Center(
               child: Container(

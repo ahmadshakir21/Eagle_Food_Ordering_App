@@ -28,6 +28,15 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: MainScreen(),
+      routes: {
+        "/myOrder": (BuildContext context) => MyOrder(),
+        "/myFavorite": (BuildContext context) => MyFavorite(),
+        "/writeReview": (BuildContext context) => const WriteReview(),
+        "/aboutMe": (BuildContext context) => const AboutUs(),
+        "/editProfile": (BuildContext context) => const EditProfile(),
+        "/singleFoodDetails": (BuildContext context) =>
+            const SingleFoodDetails(),
+      },
     );
   }
 }

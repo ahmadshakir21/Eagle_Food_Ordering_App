@@ -8,110 +8,115 @@ class ItemInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
-      child: Stack(children: [
-        Padding(
-          padding: const EdgeInsets.all(7),
-          child: Stack(
-            children: [
-              Container(
-                height: 110,
-                decoration: BoxDecoration(
-                    color: const Color(0xFFc4c4c4),
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-              Positioned(
-                  top: 0,
-                  right: 0,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.favorite_border_rounded,
-                      color: Color(0xFFE24047),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed("/singleFoodDetails");
+      },
+      child: Container(
+        height: 200,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        child: Stack(children: [
+          Padding(
+            padding: const EdgeInsets.all(7),
+            child: Stack(
+              children: [
+                Container(
+                  height: 110,
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFc4c4c4),
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                Positioned(
+                    top: 0,
+                    right: 0,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.favorite_border_rounded,
+                        color: Color(0xFFE24047),
+                      ),
+                      onPressed: () {},
+                    )),
+                Positioned(
+                    bottom: 0,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.add_box_outlined,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {},
+                    ))
+              ],
+            ),
+          ),
+          Positioned(
+            top: 125,
+            left: 5,
+            child: Container(
+              height: 20,
+              width: 160,
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Burger",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF0B2E40)),
                     ),
-                    onPressed: () {},
-                  )),
-              Positioned(
-                  bottom: 0,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.add_box_outlined,
-                      color: Colors.white,
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.star_rounded,
+                          color: Colors.red,
+                          size: 18,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "3",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF0B2E40)),
+                        ),
+                      ],
                     ),
-                    onPressed: () {},
-                  ))
-            ],
+                  ]),
+            ),
           ),
-        ),
-        Positioned(
-          top: 125,
-          left: 5,
-          child: Container(
-            height: 20,
-            width: 160,
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Burger",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF0B2E40)),
-                  ),
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.star_rounded,
-                        color: Colors.red,
-                        size: 18,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "3",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF0B2E40)),
-                      ),
-                    ],
-                  ),
-                ]),
+          Positioned(
+            top: 150,
+            left: 5,
+            child: Container(
+              height: 20,
+              width: 160,
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "18\$",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF244395)),
+                    ),
+                    Text(
+                      "KFC",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF0B2E40)),
+                    ),
+                  ]),
+            ),
           ),
-        ),
-        Positioned(
-          top: 150,
-          left: 5,
-          child: Container(
-            height: 20,
-            width: 160,
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "18\$",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF244395)),
-                  ),
-                  Text(
-                    "KFC",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF0B2E40)),
-                  ),
-                ]),
-          ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 }

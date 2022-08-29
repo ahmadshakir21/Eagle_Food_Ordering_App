@@ -19,10 +19,11 @@ class MyOrder extends StatelessWidget {
                   height: 10,
                 ),
                 Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: const Icon(
                           Icons.arrow_back_rounded,
                           size: 30,

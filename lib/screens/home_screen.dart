@@ -29,7 +29,9 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/editProfile");
+                      },
                       icon: const Icon(
                         Icons.mode_edit_outline_rounded,
                         color: Colors.white,
@@ -81,12 +83,30 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          DrawerItems(icon: Icons.ballot, text: "My Order", onClick: () {}),
           DrawerItems(
-              icon: Icons.favorite, text: "My Favorites", onClick: () {}),
+              icon: Icons.ballot,
+              text: "My Order",
+              onClick: () {
+                Navigator.of(context).pushNamed("/myOrder");
+              }),
           DrawerItems(
-              icon: Icons.star_rounded, text: "Write Reviews", onClick: () {}),
-          DrawerItems(icon: Icons.person, text: "About Me", onClick: () {}),
+              icon: Icons.favorite,
+              text: "My Favorites",
+              onClick: () {
+                Navigator.of(context).pushNamed("/myFavorite");
+              }),
+          DrawerItems(
+              icon: Icons.star_rounded,
+              text: "Write Reviews",
+              onClick: () {
+                Navigator.of(context).pushNamed("/writeReview");
+              }),
+          DrawerItems(
+              icon: Icons.person,
+              text: "About Me",
+              onClick: () {
+                Navigator.of(context).pushNamed("/aboutMe");
+              }),
           DrawerItems(
             icon: Icons.logout,
             text: "Logout",

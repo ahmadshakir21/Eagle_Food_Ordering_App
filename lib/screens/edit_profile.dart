@@ -17,7 +17,9 @@ class EditProfile extends StatelessWidget {
         ),
         Row(children: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: const Icon(
                 Icons.arrow_back_rounded,
                 size: 30,

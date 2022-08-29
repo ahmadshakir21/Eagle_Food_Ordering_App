@@ -15,9 +15,26 @@ class SingleFoodDetails extends StatelessWidget {
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 280,
-                  color: Colors.grey,
+                Stack(
+                  children: [
+                    Container(
+                      height: 280,
+                      color: Colors.grey,
+                    ),
+                    Positioned(
+                      top: 15,
+                      left: 15,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_rounded,
+                            size: 30,
+                            color: Color(0xFF0B2E40),
+                          )),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 10,
