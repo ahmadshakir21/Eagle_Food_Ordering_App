@@ -1,7 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_ordering_app/models/write_review_model.dart';
 
 class WriteReview extends StatelessWidget {
-  const WriteReview({Key? key}) : super(key: key);
+  WriteReview({Key? key}) : super(key: key);
+
+  final nameController = TextEditingController();
+  final messageController = TextEditingController();
+
+  sendWriteReviewToServer() async {
+    FirebaseFirestore firebaseFirestoreWriteReview = FirebaseFirestore.instance;
+
+    User? user = FirebaseAuth.instance.currentUser;
+    WriteReviewModel writeReviewModel = WriteReviewModel();
+
+    writeReviewModel.uID = user?.uid;
+    writeReviewModel.name = nameController.text;
+    writeReviewModel.reviewMessage = messageController.text;
+
+    await firebaseFirestoreWriteReview
+        .collection("write review")
+        .doc(user?.uid)
+        .set(writeReviewModel.toMap());
+
+    nameController.text = "";
+    messageController.text = "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,51 +70,11 @@ class WriteReview extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.star_outline_rounded,
-                          size: 35,
-                          color: Color(0xFF244395),
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.star_outline_rounded,
-                          size: 35,
-                          color: Color(0xFF244395),
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.star_outline_rounded,
-                          size: 35,
-                          color: Color(0xFF244395),
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.star_outline_rounded,
-                          size: 35,
-                          color: Color(0xFF244395),
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.star_outline_rounded,
-                          size: 35,
-                          color: Color(0xFF244395),
-                        )),
-                  ],
-                ),
                 const SizedBox(
                   height: 20,
                 ),
                 Container(
-                    height: 300,
+                    height: 275,
                     width: 350,
                     decoration: BoxDecoration(
                         boxShadow: [
@@ -107,8 +92,9 @@ class WriteReview extends StatelessWidget {
                       ),
                       Container(
                         width: 320,
-                        child: const TextField(
-                          decoration: InputDecoration(
+                        child: TextField(
+                          controller: nameController,
+                          decoration: const InputDecoration(
                               label: Text(
                             "Your Name",
                             style: TextStyle(
@@ -117,13 +103,13 @@ class WriteReview extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Container(
                         width: 320,
-                        child: const TextField(
-                          maxLines: 4,
-                          decoration: InputDecoration(
+                        child: TextField(
+                          controller: messageController,
+                          decoration: const InputDecoration(
                               label: Text(
                             "Write You Review",
                             style: TextStyle(
@@ -134,13 +120,13 @@ class WriteReview extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 43,
+                        height: 50,
                       ),
                       Container(
                         width: 170,
                         height: 40,
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: sendWriteReviewToServer,
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30)),

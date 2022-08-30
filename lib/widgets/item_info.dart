@@ -58,32 +58,20 @@ class ItemInfo extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       "Burger",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           color: Color(0xFF0B2E40)),
                     ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.star_rounded,
-                          color: Colors.red,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "3",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF0B2E40)),
-                        ),
-                      ],
+                    Text(
+                      "\$18",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF244395)),
                     ),
                   ]),
             ),
@@ -99,14 +87,7 @@ class ItemInfo extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
-                      "18\$",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF244395)),
-                    ),
-                    Text(
-                      "KFC",
+                      "Hardees",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,

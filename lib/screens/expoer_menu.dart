@@ -13,17 +13,10 @@ class ExporeMenu extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           child: Column(children: [
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back_rounded,
-                    size: 30,
-                    color: Color(0xFF0B2E40),
-                  )),
-              const Text(
+            const Center(
+              child: Text(
                 "Expore Menu",
                 style: TextStyle(
                   fontSize: 20,
@@ -31,16 +24,9 @@ class ExporeMenu extends StatelessWidget {
                   color: Color(0xFF0B2E40),
                 ),
               ),
-              Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                    color: const Color(0xFF0B2E40),
-                    borderRadius: BorderRadius.circular(8)),
-              ),
-            ]),
+            ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Container(
               width: 370,

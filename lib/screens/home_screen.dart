@@ -8,7 +8,6 @@ import 'package:food_ordering_app/screens/single_food_details.dart';
 import 'package:food_ordering_app/widgets/drawer_items.dart';
 import 'package:food_ordering_app/widgets/item_info.dart';
 import 'package:food_ordering_app/widgets/new_offer_item.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -21,60 +20,48 @@ class HomeScreen extends StatelessWidget {
       drawer: Drawer(
         child: ListView(padding: EdgeInsets.zero, children: [
           DrawerHeader(
+            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
             decoration: const BoxDecoration(
               color: Color(0xFF244395),
             ),
             child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+              child: Row(
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed("/editProfile");
-                      },
-                      icon: const Icon(
-                        Icons.mode_edit_outline_rounded,
-                        color: Colors.white,
-                      )),
-                  Row(
-                    children: [
-                      Container(
-                        height: 75,
-                        width: 75,
-                        decoration: BoxDecoration(
-                            color: const Color(0xFFC3C3C3),
-                            borderRadius: BorderRadius.circular(10)),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              "Ahmad Shakir",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "ahmad.shakir@gmail.com",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.white),
-                            ),
-                          ],
+                  Container(
+                    height: 75,
+                    width: 75,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFFC3C3C3),
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    height: 75,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Ahmad Shakir",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "ahmad.shakir@gmail.com",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

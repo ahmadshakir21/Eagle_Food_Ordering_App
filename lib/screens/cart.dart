@@ -18,30 +18,17 @@ class Cart extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(children: [
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-              Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_back_rounded,
-                        size: 30,
-                        color: Color(0xFF0B2E40),
-                      )),
-                  const SizedBox(
-                    width: 120,
+              const Center(
+                child: Text(
+                  "Cart",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF0B2E40),
                   ),
-                  const Text(
-                    "Cart",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF0B2E40),
-                    ),
-                  ),
-                ],
+                ),
               ),
               const SizedBox(
                 height: 40,

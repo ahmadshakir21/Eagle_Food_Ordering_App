@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/myOrder": (BuildContext context) => MyOrder(),
         "/myFavorite": (BuildContext context) => MyFavorite(),
-        "/writeReview": (BuildContext context) => const WriteReview(),
+        "/writeReview": (BuildContext context) => WriteReview(),
         "/aboutMe": (BuildContext context) => const AboutUs(),
         "/editProfile": (BuildContext context) => const EditProfile(),
         "/singleFoodDetails": (BuildContext context) =>

@@ -16,30 +16,17 @@ class OffersAndDeals extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-              Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_back_rounded,
-                        size: 30,
-                        color: Color(0xFF0B2E40),
-                      )),
-                  const SizedBox(
-                    width: 75,
+              const Center(
+                child: Text(
+                  "Offers & Deals",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF0B2E40),
                   ),
-                  const Text(
-                    "Offers & Deals",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF0B2E40),
-                    ),
-                  ),
-                ],
+                ),
               ),
               const SizedBox(
                 height: 35,
