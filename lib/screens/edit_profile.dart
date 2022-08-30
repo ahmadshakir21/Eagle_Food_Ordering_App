@@ -58,7 +58,7 @@ class EditProfile extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20)),
                         ),
                         const SizedBox(
-                          width: 25,
+                          width: 20,
                         ),
                         GestureDetector(
                           onTap: () async {
@@ -84,7 +84,7 @@ class EditProfile extends StatelessWidget {
                           child: const Text(
                             "Change Profile Image",
                             style: TextStyle(
-                                fontSize: 17,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w600,
                                 decoration: TextDecoration.underline,
                                 decorationThickness: 1,
