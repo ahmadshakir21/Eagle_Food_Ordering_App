@@ -31,6 +31,8 @@ A new Flutter app will use for ordering food
   - Lottie Package
   - Change profile image
   - Writing review (Feedback)
+  - Easy to use
+  - Attractive and beautiful Screens
   - Cross Platform (Android - IOS)
 
 
