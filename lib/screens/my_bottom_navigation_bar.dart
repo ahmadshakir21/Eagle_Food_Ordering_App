@@ -19,7 +19,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     const ExporeMenu(),
     const OffersAndDeals(),
     Cart(),
-    const EditProfile()
+    EditProfile()
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -143,7 +143,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            currentScreen = const EditProfile();
+                            currentScreen = EditProfile();
                             currentTab = 4;
                           });
                         },

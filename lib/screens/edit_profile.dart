@@ -1,16 +1,66 @@
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:food_ordering_app/services/storage_services.dart';
+import 'dart:io';
 
-class EditProfile extends StatelessWidget {
-  const EditProfile({Key? key}) : super(key: key);
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:food_ordering_app/models/user_model.dart';
+
+class EditProfile extends StatefulWidget {
+  EditProfile({Key? key}) : super(key: key);
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  PlatformFile? pickedFile;
+  UploadTask? uploadTask;
+
+  Future selectFile() async {
+    final result = await FilePicker.platform.pickFiles(
+        allowMultiple: false,
+        type: FileType.custom,
+        allowedExtensions: ['png', 'jpg', 'svg']);
+
+    if (result == null) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          backgroundColor: Color(0xFF244395),
+          content: Text("No file selected")));
+      return null;
+    }
+
+    setState(() {
+      pickedFile = result.files.first;
+    });
+  }
+
+  Future uploadFile() async {
+    final path = pickedFile!.name;
+    final file = File(pickedFile!.path!);
+
+    final ref = FirebaseStorage.instance.ref().child(path);
+    uploadTask = ref.putFile(file);
+
+    final snapshot = await uploadTask!.whenComplete(() {});
+
+    final urlDownload = await snapshot.ref.getDownloadURL();
+    print(urlDownload);
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = FirebaseAuth.instance.currentUser;
+    UserModel userModel = UserModel();
+
+    userModel.image = urlDownload;
+    await firebaseFirestore
+        .collection("user")
+        .doc(user?.uid)
+        .update({'image': userModel.image});
+  }
 
   @override
   Widget build(BuildContext context) {
-    final Storage storage = Storage();
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.all(15),
@@ -50,37 +100,32 @@ class EditProfile extends StatelessWidget {
                         vertical: 20, horizontal: 20),
                     child: Row(
                       children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFF244395),
-                              borderRadius: BorderRadius.circular(20)),
-                        ),
+                        pickedFile != null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  height: 100,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Image.file(
+                                    File(pickedFile!.path!),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                height: 100,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFF244395),
+                                    borderRadius: BorderRadius.circular(15)),
+                              ),
                         const SizedBox(
                           width: 20,
                         ),
                         GestureDetector(
-                          onTap: () async {
-                            final result = await FilePicker.platform.pickFiles(
-                                allowMultiple: false,
-                                type: FileType.custom,
-                                allowedExtensions: ['png', 'jpg', 'svg']);
-
-                            if (result == null) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text("No file selected")));
-                              return null;
-                            }
-
-                            final path = result.files.single.path;
-                            final fileName = result.files.single.name;
-
-                            storage
-                                .uploadFile(filePath: path, fileName: fileName)
-                                .then((value) => print("Done"));
-                          },
+                          onTap: selectFile,
                           child: const Text(
                             "Change Profile Image",
                             style: TextStyle(
@@ -101,7 +146,7 @@ class EditProfile extends StatelessWidget {
                       width: 200,
                       height: 40,
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: uploadFile,
                           style: ElevatedButton.styleFrom(
                               primary: const Color(0xFF244395),
                               shape: RoundedRectangleBorder(

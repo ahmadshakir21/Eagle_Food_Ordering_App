@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         "/myFavorite": (BuildContext context) => MyFavorite(),
         "/writeReview": (BuildContext context) => WriteReview(),
         "/aboutMe": (BuildContext context) => const AboutUs(),
-        "/editProfile": (BuildContext context) => const EditProfile(),
+        "/editProfile": (BuildContext context) => EditProfile(),
         "/singleFoodDetails": (BuildContext context) =>
             const SingleFoodDetails(),
       },
