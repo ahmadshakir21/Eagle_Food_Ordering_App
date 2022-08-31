@@ -43,6 +43,7 @@ dependencies:
   firebase_storage: ^10.3.7
   file_picker: ^5.0.1
   flutter_launcher_icons: ^0.10.0
+  provider: ^6.0.3
   
 flutter_icons:
   androis: true

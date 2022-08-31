@@ -272,7 +272,8 @@ class HomeScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        height: 500,
+                        padding: const EdgeInsets.only(bottom: 20),
+                        height: 550,
                         child: GridView.builder(
                           itemCount: 12,
                           gridDelegate:

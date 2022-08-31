@@ -37,15 +37,6 @@ class ItemInfo extends StatelessWidget {
                       ),
                       onPressed: () {},
                     )),
-                Positioned(
-                    bottom: 0,
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.add_box_outlined,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {},
-                    ))
               ],
             ),
           ),

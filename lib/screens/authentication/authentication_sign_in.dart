@@ -61,52 +61,29 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Text("E-MAIL",
-                          style: TextStyle(
-                              color: Color(0xFF0B2E40),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
-                    ),
                     Center(
                       child: Container(
-                        width: 370,
-                        height: 40,
+                        width: MediaQuery.of(context).size.width * 0.9,
                         child: TextFormField(
                           controller: emailController,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: const Color(0xFFD9D9D9),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                  borderSide: BorderSide.none)),
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.alternate_email_rounded),
+                              hintText: "Email"),
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 30,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Text("PASSWORD",
-                          style: TextStyle(
-                              color: Color(0xFF0B2E40),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
-                    ),
                     Center(
                       child: Container(
-                        width: 370,
-                        height: 40,
+                        width: MediaQuery.of(context).size.width * 0.9,
                         child: TextFormField(
                           controller: passwordController,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: const Color(0xFFD9D9D9),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                  borderSide: BorderSide.none)),
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.lock_outline_rounded),
+                              hintText: "Password"),
                         ),
                       ),
                     ),
@@ -129,7 +106,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
             ),
             Center(
               child: Container(
-                width: 370,
+                width: MediaQuery.of(context).size.width * 0.9,
                 height: 40,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
@@ -151,8 +128,8 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 225,
+            SizedBox(
+              height: 250,
             ),
             Center(
               child: RichText(

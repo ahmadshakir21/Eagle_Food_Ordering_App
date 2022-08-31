@@ -88,115 +88,65 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
             )),
       ),
       const SizedBox(
-        height: 70,
-      ),
-      const Padding(
-        padding: EdgeInsets.all(8),
-        child: Text("User-Name",
-            style: TextStyle(
-                color: Color(0xFF0B2E40),
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
+        height: 50,
       ),
       Center(
         child: Container(
-          width: 370,
-          height: 40,
-          child: TextField(
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: TextFormField(
             controller: userNameController,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFFD9D9D9),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(100),
-                    borderSide: BorderSide.none)),
+            decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.person), hintText: "Username"),
           ),
         ),
       ),
       const SizedBox(
-        height: 15,
-      ),
-      const Padding(
-        padding: EdgeInsets.all(8),
-        child: Text("E-Mail",
-            style: TextStyle(
-                color: Color(0xFF0B2E40),
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
+        height: 30,
       ),
       Center(
         child: Container(
-          width: 370,
-          height: 40,
-          child: TextField(
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: TextFormField(
             controller: emailController,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFFD9D9D9),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(100),
-                    borderSide: BorderSide.none)),
+            decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.alternate_email_rounded),
+                hintText: "Email"),
           ),
         ),
       ),
       const SizedBox(
-        height: 15,
-      ),
-      const Padding(
-        padding: EdgeInsets.all(8),
-        child: Text("Password",
-            style: TextStyle(
-                color: Color(0xFF0B2E40),
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
+        height: 30,
       ),
       Center(
         child: Container(
-          width: 370,
-          height: 40,
-          child: TextField(
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: TextFormField(
             controller: passwordController,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFFD9D9D9),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(100),
-                    borderSide: BorderSide.none)),
+            decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.lock_outline_rounded),
+                hintText: "Password"),
           ),
         ),
       ),
       const SizedBox(
-        height: 15,
-      ),
-      const Padding(
-        padding: EdgeInsets.all(8),
-        child: Text("Phone-Number",
-            style: TextStyle(
-                color: Color(0xFF0B2E40),
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
+        height: 30,
       ),
       Center(
         child: Container(
-          width: 370,
-          height: 40,
-          child: TextField(
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: TextFormField(
             controller: phoneNumberController,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFFD9D9D9),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(100),
-                    borderSide: BorderSide.none)),
+            decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.phone), hintText: "Phone Number"),
           ),
         ),
       ),
       const SizedBox(
-        height: 65,
+        height: 75,
       ),
       Center(
         child: Container(
-          width: 370,
+          width: MediaQuery.of(context).size.width * 0.9,
           height: 40,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(100),
@@ -211,7 +161,7 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
         ),
       ),
       const SizedBox(
-        height: 90,
+        height: 135,
       ),
       Center(
         child: RichText(

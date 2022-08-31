@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/provider/counter_provider.dart';
+import 'package:provider/provider.dart';
 
 class SingleFoodDetails extends StatelessWidget {
   const SingleFoodDetails({Key? key}) : super(key: key);
@@ -120,7 +122,7 @@ class SingleFoodDetails extends StatelessWidget {
                     BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: Row(children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () => context.read<Counter>().decrement(),
                     child: Container(
                       height: 30,
                       width: 30,
@@ -134,10 +136,10 @@ class SingleFoodDetails extends StatelessWidget {
                   //TODO: add functionality for the child of Text widget
                   Container(
                     width: 50,
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        "0",
-                        style: TextStyle(
+                        context.watch<Counter>().count.toString(),
+                        style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF244395)),
@@ -145,7 +147,7 @@ class SingleFoodDetails extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () => context.read<Counter>().increment(),
                     child: Container(
                       height: 30,
                       width: 30,
@@ -166,17 +168,17 @@ class SingleFoodDetails extends StatelessWidget {
                 height: 45,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
+                  style: ElevatedButton.styleFrom(
+                      primary: const Color(0xFFE24047),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40))),
+                  child: const Text(
                     "Add to cart",
                     style: TextStyle(
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFFE24047),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40))),
                 ),
               ),
             ],
