@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,47 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
     super.dispose();
   }
 
-  Future signIn() async {}
+  // regular expression to check if string
+  RegExp pass_valid = RegExp(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)");
+  double password_strength = 0;
+
+  // 0: No password
+  // 1/4: Weak
+  // 2/4: Medium
+  // 3/4: Strong
+  //   1:   Great
+
+  //A function that validate user entered password
+  bool validatePassword(String pass) {
+    String _password = pass.trim();
+
+    if (_password.isEmpty) {
+      setState(() {
+        password_strength = 0;
+      });
+    } else if (_password.length < 6) {
+      setState(() {
+        password_strength = 1 / 4;
+      });
+    } else if (_password.length < 8) {
+      setState(() {
+        password_strength = 2 / 4;
+      });
+    } else {
+      if (pass_valid.hasMatch(_password)) {
+        setState(() {
+          password_strength = 4 / 4;
+        });
+        return true;
+      } else {
+        setState(() {
+          password_strength = 3 / 4;
+        });
+        return false;
+      }
+    }
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +106,23 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (email) =>
+                              email != null && !EmailValidator.validate(email)
+                                  ? 'Enter a valid email'
+                                  : null,
+                          // validator: (value) {
+                          //   if (value!.isEmpty) {
+                          //     return ("Please Enter Your Email");
+                          //   }
+                          //   // reg expression for email validation
+                          //   if (!RegExp(
+                          //           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          //       .hasMatch(value)) {
+                          //     return ("Please Enter a valid email");
+                          //   }
+                          //   return null;
+                          // },
                           controller: emailController,
                           decoration: const InputDecoration(
                               prefixIcon: Icon(Icons.alternate_email_rounded),
@@ -79,6 +137,25 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) =>
+                              value != null && value.length < 6
+                                  ? 'Enter min. 6 characters '
+                                  : null,
+                          // validator: (value) {
+                          //   if (value!.isEmpty) {
+                          //     return "Please enter password";
+                          //   } else {
+                          //     //call function to check password
+                          //     bool result = validatePassword(value);
+                          //     if (result) {
+                          //       // create account event
+                          //       return null;
+                          //     } else {
+                          //       return " Password should contain Capital, small letter & Number & Special";
+                          //     }
+                          //   }
+                          // },
                           controller: passwordController,
                           obscureText: true,
                           decoration: const InputDecoration(
@@ -112,6 +189,8 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                   borderRadius: BorderRadius.circular(100),
                   child: ElevatedButton(
                     onPressed: () async {
+                      final isvalid = formKey.currentState!.validate();
+                      if (!isvalid) return;
                       try {
                         await FirebaseAuth.instance.signInWithEmailAndPassword(
                             email: emailController.text.trim(),
@@ -128,7 +207,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 250,
             ),
             Center(

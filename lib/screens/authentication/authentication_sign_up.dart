@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
@@ -23,6 +24,7 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
   final TextEditingController phoneNumberController = TextEditingController();
 
   final auth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -34,6 +36,8 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
   }
 
   Future signUp() async {
+    final isvalid = formKey.currentState!.validate();
+    if (!isvalid) return;
     try {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
@@ -90,55 +94,82 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
       const SizedBox(
         height: 50,
       ),
-      Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: TextFormField(
-            controller: userNameController,
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.person), hintText: "Username"),
-          ),
-        ),
-      ),
-      const SizedBox(
-        height: 30,
-      ),
-      Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: TextFormField(
-            controller: emailController,
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.alternate_email_rounded),
-                hintText: "Email"),
-          ),
-        ),
-      ),
-      const SizedBox(
-        height: 30,
-      ),
-      Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: TextFormField(
-            controller: passwordController,
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.lock_outline_rounded),
-                hintText: "Password"),
-          ),
-        ),
-      ),
-      const SizedBox(
-        height: 30,
-      ),
-      Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: TextFormField(
-            controller: phoneNumberController,
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.phone), hintText: "Phone Number"),
-          ),
+      Form(
+        key: formKey,
+        child: Column(
+          children: [
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    RegExp regex = RegExp(r'^.{5,}$');
+                    if (value!.isEmpty) {
+                      return ("Username cannot be Empty");
+                    }
+                    if (!regex.hasMatch(value)) {
+                      return ("Enter Valid name(Min. 5 Character)");
+                    }
+                    return null;
+                  },
+                  controller: userNameController,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.person), hintText: "Username"),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Enter a valid email'
+                          : null,
+                  controller: emailController,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.alternate_email_rounded),
+                      hintText: "Email"),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Enter min. 6 characters '
+                      : null,
+                  controller: passwordController,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock_outline_rounded),
+                      hintText: "Password"),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: TextFormField(
+                  controller: phoneNumberController,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.phone), hintText: "Phone Number"),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       const SizedBox(
