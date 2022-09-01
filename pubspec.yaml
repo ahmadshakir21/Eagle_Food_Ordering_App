@@ -45,9 +45,10 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
   provider: ^6.0.3
   email_validator: ^2.1.17
+  flutter_native_splash: ^2.2.8
   
 flutter_icons:
-  androis: true
+  android: true
   ios: true
   image_path: "assets/images/app logo/Eagle Logo.jpg"
   adaptive_icon_background: "#ffffff"
@@ -56,6 +57,10 @@ flutter_icons:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#244395"
+  image: "assets/images/app logo/splash_screen/Eagle Logo (png).png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
