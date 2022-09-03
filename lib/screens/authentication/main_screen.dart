@@ -20,7 +20,7 @@ class MainScreen extends StatelessWidget {
           } else if (snapshot.hasData) {
             return MyBottomNavigationBar();
           } else {
-            return AdminPanel();
+            return AuthScreen();
             //AuthScreen();
           }
         },

@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/admin/admin_panel.dart';
 import 'package:food_ordering_app/screens/authentication/forget_password.dart';
+import 'package:food_ordering_app/screens/home_screen.dart';
 
 class AuthenticationSignIn extends StatefulWidget {
   const AuthenticationSignIn({Key? key, required this.onClickedSignUp})
@@ -142,20 +144,6 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                               value != null && value.length < 6
                                   ? 'Enter min. 6 characters '
                                   : null,
-                          // validator: (value) {
-                          //   if (value!.isEmpty) {
-                          //     return "Please enter password";
-                          //   } else {
-                          //     //call function to check password
-                          //     bool result = validatePassword(value);
-                          //     if (result) {
-                          //       // create account event
-                          //       return null;
-                          //     } else {
-                          //       return " Password should contain Capital, small letter & Number & Special";
-                          //     }
-                          //   }
-                          // },
                           controller: passwordController,
                           obscureText: true,
                           decoration: const InputDecoration(
@@ -197,6 +185,15 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                             password: passwordController.text.trim());
                       } on FirebaseAuthException catch (e) {
                         print(e);
+                      }
+
+                      if (emailController.text == "admin@gmail.com" &&
+                          passwordController.text == "password") {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) {
+                            return AdminPanel();
+                          },
+                        ));
                       }
                     },
                     style: ElevatedButton.styleFrom(

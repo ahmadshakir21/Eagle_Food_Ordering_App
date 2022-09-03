@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_ordering_app/models/admin_model.dart';
 import 'package:food_ordering_app/models/user_model.dart';
 import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
 import 'package:food_ordering_app/screens/single_food_details.dart';
@@ -12,6 +15,12 @@ import 'package:food_ordering_app/widgets/new_offer_item.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  Stream<List<AdminModel>> readData() {
+    return FirebaseFirestore.instance.collection("admin").snapshots().map(
+        (snap) =>
+            snap.docs.map((doc) => AdminModel.fromMap(doc.data())).toList());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -269,24 +278,139 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        height: 550,
-                        child: GridView.builder(
-                          itemCount: 12,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10,
-                                  mainAxisSpacing: 10),
-                          itemBuilder: (context, index) {
-                            return const ItemInfo();
-                          },
-                        ),
-                      ),
-                    ),
+                    StreamBuilder<List<AdminModel>>(
+                        stream: readData(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasError) {
+                            return const Text("Error");
+                          } else if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Center(
+                                child: const CircularProgressIndicator());
+                          } else {
+                            return GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                padding: const EdgeInsets.only(bottom: 20),
+                                height: 550,
+                                child: GridView.builder(
+                                  itemCount: snapshot.data!.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          crossAxisSpacing: 10,
+                                          mainAxisSpacing: 10),
+                                  itemBuilder: (context, index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context)
+                                            .pushNamed("/singleFoodDetails");
+                                      },
+                                      child: Container(
+                                        height: 200,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Stack(children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(7),
+                                            child: Stack(
+                                              children: [
+                                                Container(
+                                                  height: 110,
+                                                  decoration: BoxDecoration(
+                                                      color: const Color(
+                                                          0xFFc4c4c4),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                ),
+                                                Positioned(
+                                                    top: 0,
+                                                    right: 0,
+                                                    child: IconButton(
+                                                      icon: const Icon(
+                                                        Icons
+                                                            .favorite_border_rounded,
+                                                        color:
+                                                            Color(0xFFE24047),
+                                                      ),
+                                                      onPressed: () {},
+                                                    )),
+                                              ],
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 125,
+                                            left: 5,
+                                            child: Container(
+                                              height: 20,
+                                              width: 160,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 5),
+                                              child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "hello",
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Color(
+                                                              0xFF0B2E40)),
+                                                    ),
+                                                    Text(
+                                                      "\$18",
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Color(
+                                                              0xFF244395)),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 150,
+                                            left: 5,
+                                            child: Container(
+                                              height: 20,
+                                              width: 160,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 5),
+                                              child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: const [
+                                                    Text(
+                                                      "Hardees",
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Color(
+                                                              0xFF0B2E40)),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ),
+                                        ]),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                          }
+                        }),
                   ],
                 ),
               ),
