@@ -16,7 +16,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int currentTab = 0;
   final List screens = [
     HomeScreen(),
-    const ExporeMenu(),
+    ExporeMenu(),
     const OffersAndDeals(),
     Cart(),
     EditProfile()
@@ -57,7 +57,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            currentScreen = const ExporeMenu();
+                            currentScreen = ExporeMenu();
                             currentTab = 1;
                           });
                         },

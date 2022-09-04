@@ -53,7 +53,7 @@ class OrderItemCart extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    width: 70,
+                    width: 50,
                   ),
                   Container(
                       height: 50,
@@ -118,7 +118,7 @@ class OrderItemCart extends StatelessWidget {
           height: 75,
         ),
         Container(
-          height: MediaQuery.of(context).size.height * 0.25,
+          height: MediaQuery.of(context).size.height * 0.276,
           width: MediaQuery.of(context).size.width * 0.9,
           decoration: BoxDecoration(
               color: const Color(0xFFD9D9D9),
@@ -128,7 +128,7 @@ class OrderItemCart extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               const Text("Items Total",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),

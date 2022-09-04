@@ -2,10 +2,10 @@ class AdminModel {
   String? foodID;
   String? name;
   String? description;
-  int? price;
+  double? price;
   String? restaurantName;
   int? deliveryTime;
-  int? deliveryPrice;
+  double? deliveryPrice;
 
   AdminModel(
       {this.foodID,

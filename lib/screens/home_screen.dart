@@ -16,11 +16,16 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Stream<List<AdminModel>> readData() {
-    return FirebaseFirestore.instance.collection("admin").snapshots().map(
-        (snap) =>
-            snap.docs.map((doc) => AdminModel.fromMap(doc.data())).toList());
-  }
+  // Stream<List<AdminModel>> readData() {
+  //   return FirebaseFirestore.instance.collection("admin").snapshots().map(
+  //       (snap) =>
+  //           snap.docs.map((doc) => AdminModel.fromMap(doc.data())).toList());
+  // }
+
+  final Stream<QuerySnapshot> readDataStream =
+      FirebaseFirestore.instance.collection("admin").snapshots();
+
+  User? user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Ahmad Shakir",
                           style: TextStyle(
@@ -239,7 +244,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //TODO: Change Name of user (Use String interpolation)
-                    const Text("Hello! Ahmad",
+                    Text("Hello! Ahmed",
                         style: TextStyle(
                             color: Color(0xFF0B2E40),
                             fontSize: 24,
@@ -278,9 +283,11 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    StreamBuilder<List<AdminModel>>(
-                        stream: readData(),
-                        builder: (context, snapshot) {
+                    StreamBuilder<QuerySnapshot>(
+                        stream: readDataStream,
+                        //readData(),
+                        builder:
+                            (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (snapshot.hasError) {
                             return const Text("Error");
                           } else if (snapshot.connectionState ==
@@ -294,7 +301,7 @@ class HomeScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(bottom: 20),
                                 height: 550,
                                 child: GridView.builder(
-                                  itemCount: snapshot.data!.length,
+                                  itemCount: snapshot.requireData.size,
                                   gridDelegate:
                                       const SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,
@@ -356,20 +363,21 @@ class HomeScreen extends StatelessWidget {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "hello",
+                                                      snapshot.requireData
+                                                          .docs[index]['name'],
                                                       style: TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: 14,
                                                           fontWeight:
-                                                              FontWeight.w700,
+                                                              FontWeight.w600,
                                                           color: Color(
                                                               0xFF0B2E40)),
                                                     ),
                                                     Text(
-                                                      "\$18",
+                                                      "\$${snapshot.requireData.docs[index]['price']}",
                                                       style: TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: 14,
                                                           fontWeight:
-                                                              FontWeight.w700,
+                                                              FontWeight.w600,
                                                           color: Color(
                                                               0xFF244395)),
                                                     ),
@@ -389,13 +397,15 @@ class HomeScreen extends StatelessWidget {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceBetween,
-                                                  children: const [
+                                                  children: [
                                                     Text(
-                                                      "Hardees",
+                                                      snapshot.requireData
+                                                              .docs[index]
+                                                          ['restaurantName'],
                                                       style: TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: 14,
                                                           fontWeight:
-                                                              FontWeight.w700,
+                                                              FontWeight.w600,
                                                           color: Color(
                                                               0xFF0B2E40)),
                                                     ),

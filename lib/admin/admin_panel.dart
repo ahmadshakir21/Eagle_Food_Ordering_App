@@ -39,28 +39,44 @@ class _AdminPanelState extends State<AdminPanel> {
     super.dispose();
   }
 
+  String? foodName;
+  String? foodDescription;
+  double? price;
+  String? restaurantName;
+  int? deliveryTime;
+  double? deliveryPrice;
+
   sendAdminPanelFoodInformation() async {
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
-    User? user = FirebaseAuth.instance.currentUser;
-    AdminModel adminModel = AdminModel();
+    // User? user = FirebaseAuth.instance.currentUser;
+    // AdminModel adminModel = AdminModel();
 
-    adminModel.foodID = user?.uid;
-    adminModel.name = foodNameController.text;
-    adminModel.description = foodDescriptionController.text;
-    adminModel.price = int.parse(foodPriceController.text);
-    adminModel.restaurantName = restaurantNameController.text;
-    adminModel.deliveryTime = int.parse(deliveryTimeController.text);
-    adminModel.deliveryTime = int.parse(deliveryPriceController.text);
+    // adminModel.foodID = user?.uid;
+    // adminModel.name = foodName;
+    // adminModel.description = foodDescription;
+    // adminModel.price = price;
+    // adminModel.restaurantName = restaurantName;
+    // adminModel.deliveryTime = deliveryTime;
+    // adminModel.deliveryPrice = deliveryPrice;
 
-    await firebaseFirestore
-        .collection("admin")
-        .doc(user?.uid)
-        .set(adminModel.toMap());
+    // adminModel.foodID = user?.uid;
+    // adminModel.name = foodNameController.text;
+    // adminModel.description = foodDescriptionController.text;
+    // adminModel.price = int.parse(foodPriceController.text);
+    // adminModel.restaurantName = restaurantNameController.text;
+    // adminModel.deliveryTime = int.parse(deliveryTimeController.text);
+    // adminModel.deliveryPrice = int.parse(deliveryPriceController.text);
+
+    // await firebaseFirestore
+    //     .collection("admin")
+    //     .doc(user?.uid)
+    //     .set(adminModel.toMap());
   }
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference admin = FirebaseFirestore.instance.collection("admin");
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.all(15),
@@ -194,11 +210,14 @@ class _AdminPanelState extends State<AdminPanel> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: TextField(
+                    onChanged: (value) {
+                      foodName = value;
+                    },
                     decoration: InputDecoration(
-                  hintText: "Food Name",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                )),
+                      hintText: "Food Name",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    )),
               ),
             ),
             const SizedBox(
@@ -208,11 +227,14 @@ class _AdminPanelState extends State<AdminPanel> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: TextField(
+                    onChanged: (value) {
+                      foodDescription = value;
+                    },
                     decoration: InputDecoration(
-                  hintText: "Food Description",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                )),
+                      hintText: "Food Description",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    )),
               ),
             ),
             const SizedBox(
@@ -222,11 +244,14 @@ class _AdminPanelState extends State<AdminPanel> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: TextField(
+                    onChanged: (value) {
+                      price = double.parse(value);
+                    },
                     decoration: InputDecoration(
-                  hintText: "Food Price",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                )),
+                      hintText: "Food Price",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    )),
               ),
             ),
             const SizedBox(
@@ -236,11 +261,14 @@ class _AdminPanelState extends State<AdminPanel> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: TextField(
+                    onChanged: (value) {
+                      restaurantName = value;
+                    },
                     decoration: InputDecoration(
-                  hintText: "Restaurant Name",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                )),
+                      hintText: "Restaurant Name",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    )),
               ),
             ),
             const SizedBox(
@@ -250,11 +278,14 @@ class _AdminPanelState extends State<AdminPanel> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: TextField(
+                    onChanged: (value) {
+                      deliveryTime = int.parse(value);
+                    },
                     decoration: InputDecoration(
-                  hintText: "Delivery Time",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                )),
+                      hintText: "Delivery Time",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    )),
               ),
             ),
             const SizedBox(
@@ -264,11 +295,14 @@ class _AdminPanelState extends State<AdminPanel> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: TextField(
+                    onChanged: (value) {
+                      deliveryPrice = double.parse(value);
+                    },
                     decoration: InputDecoration(
-                  hintText: "Delivery Price",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                )),
+                      hintText: "Delivery Price",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    )),
               ),
             ),
             const SizedBox(
@@ -278,7 +312,23 @@ class _AdminPanelState extends State<AdminPanel> {
                 height: 45,
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: ElevatedButton(
-                    onPressed: sendAdminPanelFoodInformation,
+                    onPressed: () {
+                      FirebaseFirestore firebaseFirestore =
+                          FirebaseFirestore.instance;
+
+                      User? user = FirebaseAuth.instance.currentUser;
+                      AdminModel adminModel = AdminModel();
+
+                      adminModel.foodID = user?.uid;
+                      adminModel.name = foodName;
+                      adminModel.description = foodDescription;
+                      adminModel.price = price;
+                      adminModel.restaurantName = restaurantName;
+                      adminModel.deliveryTime = deliveryTime;
+                      adminModel.deliveryPrice = deliveryPrice;
+
+                      admin.add(adminModel.toMap());
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: const Color(0xFF244395),
                         shape: RoundedRectangleBorder(
