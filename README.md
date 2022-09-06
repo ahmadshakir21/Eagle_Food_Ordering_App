@@ -21,13 +21,10 @@ A new Flutter app will use for ordering food
 ## Features
 
   - Splash Screen
-  - Onboarding Screen
-  - Authentication (Sign in - Sign Up - Verification Code - Logout)
+  - Authentication (Sign in - Sign Up - Logout)
   - Ordering food
   - Deleting ordered food
   - Favorite Icon button (selecting your favorite food and removing your favorite food)
-  - Filtering your favorite food
-  - Discount (by sending special code)
   - Lottie Package
   - Change profile image
   - Writing review (Feedback)
