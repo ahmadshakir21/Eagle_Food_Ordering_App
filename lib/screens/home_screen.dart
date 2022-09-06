@@ -32,14 +32,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: readDataStreamUser,
-      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return const Text("Error");
-        } else if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
-        } else {
+    return FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+        future:
+            FirebaseFirestore.instance.collection("user").doc(user!.uid).get(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text("Error...");
+          } else if (snapshot.data == null) {
+            return Text("Data is null");
+          }
+
+          UserModel theUserModel =
+              UserModel.fromSnapShot(snapshot.data as DocumentSnapshot);
+
           return Scaffold(
             key: scaffoldKey,
             drawer: Drawer(
@@ -70,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Ahmad shakir",
+                                theUserModel.name!,
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
@@ -235,13 +242,27 @@ class HomeScreen extends StatelessWidget {
                             onPressed: () {
                               scaffoldKey.currentState!.openDrawer();
                             }),
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFF0B2E40),
-                              borderRadius: BorderRadius.circular(8)),
-                        ),
+                        theUserModel.image != null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Image.network(
+                                    theUserModel.image.toString(),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFF244395),
+                                    borderRadius: BorderRadius.circular(15)),
+                              ),
                       ],
                     ),
                   ),
@@ -260,7 +281,7 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //TODO: Change Name of user (Use String interpolation)
-                          Text("Hello! Ahmed",
+                          Text("Hello! ${theUserModel.name}",
                               style: TextStyle(
                                   color: Color(0xFF0B2E40),
                                   fontSize: 24,
@@ -285,17 +306,17 @@ class HomeScreen extends StatelessWidget {
                                       borderSide: BorderSide.none)),
                             ),
                           ),
-                          NewOfferItem(),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          const Text(
-                            "Menu",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500),
-                          ),
+                          // NewOfferItem(),
+                          // const SizedBox(
+                          //   height: 15,
+                          // ),
+                          // const Text(
+                          //   "Menu",
+                          //   style: TextStyle(
+                          //       color: Colors.black,
+                          //       fontSize: 18,
+                          //       fontWeight: FontWeight.w500),
+                          // ),
                           const SizedBox(
                             height: 15,
                           ),
@@ -315,7 +336,7 @@ class HomeScreen extends StatelessWidget {
                                     onTap: () {},
                                     child: Container(
                                       padding:
-                                          const EdgeInsets.only(bottom: 20),
+                                          const EdgeInsets.only(bottom: 100),
                                       height: 550,
                                       child: GridView.builder(
                                         itemCount: snapshot.requireData.size,
@@ -454,8 +475,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           );
-        }
-      },
-    );
+        });
   }
 }
