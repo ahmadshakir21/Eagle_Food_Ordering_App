@@ -36,6 +36,7 @@ A new Flutter app will use for ordering food
   ## Future Version ( In sha allah )
    
    - Kurdish Language
+   - Animation
    - Dark Theme
 
 
