@@ -55,6 +55,7 @@ To clone and run this application, you'll need Git and Flutter installed on your
 ```
     
 ## Flutter Packages
+
 ## Authors
 
 - [@ahmadshakir21](https://github.com/ahmadshakir21)
