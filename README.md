@@ -21,13 +21,10 @@ A new Flutter app will use for ordering food
 ## Features
 
   - Splash Screen
-  - Onboarding Screen
-  - Authentication (Sign in - Sign Up - Verification Code - Logout)
+  - Authentication (Sign in - Sign Up - Logout)
   - Ordering food
   - Deleting ordered food
   - Favorite Icon button (selecting your favorite food and removing your favorite food)
-  - Filtering your favorite food
-  - Discount (by sending special code)
   - Lottie Package
   - Change profile image
   - Writing review (Feedback)
@@ -39,6 +36,7 @@ A new Flutter app will use for ordering food
   ## Future Version ( In sha allah )
    
    - Kurdish Language
+   - Animation
    - Dark Theme
 
 
@@ -58,6 +56,25 @@ To clone and run this application, you'll need Git and Flutter installed on your
 ```
     
 ## Flutter Packages
+
+  - font_awesome_flutter: ^10.1.0
+  - smooth_page_indicator: ^1.0.0+2
+  - lottie: ^1.4.1
+  - firebase_core: ^1.21.0
+  - firebase_auth: ^3.6.4
+  - cloud_firestore: ^3.4.6
+  - firebase_storage: ^10.3.7
+  - file_picker: ^5.0.1
+  - flutter_launcher_icons: ^0.10.0
+  - provider: ^6.0.3
+  - email_validator: ^2.1.17
+  - flutter_native_splash: ^2.2.8
+  - get: ^4.6.5
+  - image_picker: ^0.8.5+3
+  - permission_handler: ^10.0.0
+  - path: ^1.8.1
+  - path_provider: ^2.0.11 
+
 ## Authors
 
 - [@ahmadshakir21](https://github.com/ahmadshakir21)
