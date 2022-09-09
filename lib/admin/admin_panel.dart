@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'dart:isolate';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:food_ordering_app/models/admin_model.dart';
 import 'package:food_ordering_app/models/user_model.dart';
@@ -48,6 +51,32 @@ class _AdminPanelState extends State<AdminPanel> {
   double? deliveryPrice;
 
   User? user = FirebaseAuth.instance.currentUser;
+
+  // PlatformFile? pickedFile;
+  // UploadTask? uploadTask;
+
+  // Future uploadFile() async {
+  //   final path = pickedFile!.name;
+  //   final file = File(pickedFile!.path!);
+
+  //   final ref = FirebaseStorage.instance.ref().child(path);
+  //   uploadTask = ref.putFile(file);
+
+  //   final snapshot = await uploadTask!.whenComplete(() {});
+
+  //   final urlDownload = await snapshot.ref.getDownloadURL();
+  //   print(urlDownload);
+
+  //   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  //   User? user = FirebaseAuth.instance.currentUser;
+  //   UserModel userModel = UserModel();
+
+  //   userModel.image = urlDownload;
+  //   await firebaseFirestore
+  //       .collection("user")
+  //       .doc(user?.uid)
+  //       .update({'image': userModel.image});
+  // }
 
   sendAdminPanelFoodInformation() async {
     // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -379,6 +408,7 @@ class _AdminPanelState extends State<AdminPanel> {
                                 adminModel.price = price;
                                 adminModel.restaurantName = restaurantName;
                                 adminModel.deliveryTime = deliveryTime;
+                                adminModel.image = theAdminModel.image;
                                 adminModel.deliveryPrice = deliveryPrice;
 
                                 admin.add(adminModel.toMap());

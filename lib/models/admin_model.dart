@@ -10,6 +10,8 @@ class AdminModel {
   int? deliveryTime;
   double? deliveryPrice;
 
+  DocumentReference? reference;
+
   AdminModel(
       {this.foodID,
       this.name,

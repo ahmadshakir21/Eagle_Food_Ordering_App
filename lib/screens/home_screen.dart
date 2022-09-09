@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_ordering_app/models/admin_model.dart';
 import 'package:food_ordering_app/models/user_model.dart';
+import 'package:food_ordering_app/models/user_model_new.dart';
 import 'package:food_ordering_app/screens/my_bottom_navigation_bar.dart';
 import 'package:food_ordering_app/screens/single_food_details.dart';
 import 'package:food_ordering_app/widgets/drawer_items.dart';
@@ -22,11 +23,11 @@ class HomeScreen extends StatelessWidget {
   //           snap.docs.map((doc) => AdminModel.fromMap(doc.data())).toList());
   // }
 
-  final Stream<QuerySnapshot> readDataStreamAdmin =
-      FirebaseFirestore.instance.collection("admin").snapshots();
+  // final Stream<QuerySnapshot> readDataStreamAdmin =
+  //     FirebaseFirestore.instance.collection("admin").snapshots();
 
-  final Stream<QuerySnapshot> readDataStreamUser =
-      FirebaseFirestore.instance.collection("user").snapshots();
+  // final Stream<QuerySnapshot> readDataStreamUser =
+  //     FirebaseFirestore.instance.collection("user").snapshots();
 
   User? user = FirebaseAuth.instance.currentUser;
 
@@ -46,6 +47,9 @@ class HomeScreen extends StatelessWidget {
 
           UserModel theUserModel =
               UserModel.fromSnapShot(snapshot.data as DocumentSnapshot);
+
+          // UserModelNew theUserModelNew =
+          //     UserModelNew.fromSnapShot(snapshot.data as DocumentSnapshot);
 
           return Scaffold(
             key: scaffoldKey,
@@ -321,7 +325,9 @@ class HomeScreen extends StatelessWidget {
                             height: 15,
                           ),
                           StreamBuilder<QuerySnapshot>(
-                              stream: readDataStreamAdmin,
+                              stream: FirebaseFirestore.instance
+                                  .collection("admin")
+                                  .snapshots(),
                               //readData(),
                               builder: (context,
                                   AsyncSnapshot<QuerySnapshot> snapshot) {

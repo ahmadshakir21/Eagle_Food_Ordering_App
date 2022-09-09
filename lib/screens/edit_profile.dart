@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:food_ordering_app/models/user_model.dart';
+import 'package:food_ordering_app/models/user_model_new.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
@@ -69,10 +70,11 @@ class _EditProfileState extends State<EditProfile> {
         setState(() {
           imageUrl = downlodeURL;
         });
+
         Map<String, dynamic> map = Map();
         if (fileName != null) {
           String url = downlodeURL;
-          map['imageUrl'] = url;
+          map['image'] = url;
         }
         var uplod = await FirebaseFirestore.instance
             .collection("user")
@@ -132,92 +134,94 @@ class _EditProfileState extends State<EditProfile> {
               UserModel theUserModel =
                   UserModel.fromSnapShot(snapshot.data as DocumentSnapshot);
 
+              // UserModelNew theUserModelNew =
+              //     UserModelNew.fromSnapShot(snapshot.data as DocumentSnapshot);
+
               return Padding(
-                padding: const EdgeInsets.all(15),
-                child: SingleChildScrollView(
-                  child: Column(children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Center(
-                      child: Text(
-                        "Edit Profile",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF0B2E40),
+                  padding: const EdgeInsets.all(15),
+                  child: SingleChildScrollView(
+                    child: Column(children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Center(
+                        child: Text(
+                          "Edit Profile",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFF0B2E40),
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Center(
-                      child: Container(
-                        height: 250,
-                        width: 350,
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade400,
-                                offset: const Offset(0.0, 0.0), //(x,y)
-                                blurRadius: 6.0,
-                              ),
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(25)),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 20),
-                              child: theUserModel.image != null
-                                  ? ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Container(
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Center(
+                        child: Container(
+                          height: 250,
+                          width: 350,
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade400,
+                                  offset: const Offset(0.0, 0.0), //(x,y)
+                                  blurRadius: 6.0,
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(25)),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 20),
+                                child: theUserModel.image != null
+                                    ? ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Container(
+                                          height: 150,
+                                          width: 150,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Image.network(
+                                            theUserModel.image.toString(),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      )
+                                    : Container(
                                         height: 150,
                                         width: 150,
                                         decoration: BoxDecoration(
+                                            color: const Color(0xFF244395),
                                             borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Image.network(
-                                          theUserModel.image.toString(),
-                                          fit: BoxFit.cover,
-                                        ),
+                                                BorderRadius.circular(15)),
                                       ),
-                                    )
-                                  : Container(
-                                      height: 150,
-                                      width: 150,
-                                      decoration: BoxDecoration(
-                                          color: const Color(0xFF244395),
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                    ),
-                            ),
-                            Container(
-                                width: 250,
-                                height: 40,
-                                child: ElevatedButton(
-                                    onPressed: uploadImage,
-                                    style: ElevatedButton.styleFrom(
-                                        primary: const Color(0xFF244395),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20))),
-                                    child: const Text(
-                                      "Change Your Image",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w600),
-                                    ))),
-                          ],
+                              ),
+                              Container(
+                                  width: 250,
+                                  height: 40,
+                                  child: ElevatedButton(
+                                      onPressed: uploadImage,
+                                      style: ElevatedButton.styleFrom(
+                                          primary: const Color(0xFF244395),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20))),
+                                      child: const Text(
+                                        "Change Your Image",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w600),
+                                      ))),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ]),
-                ),
-              );
+                    ]),
+                  ));
             }));
   }
 }
